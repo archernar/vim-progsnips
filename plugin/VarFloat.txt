@@ -1,0 +1,9 @@
+     private float NNAME = "";
+
+     public float getNNAME() {
+         return this.NNAME;
+     }
+     public float setNNAME(float NNAME) {
+         this.NNAME = NNAME;
+         return this.NNAME;
+     }

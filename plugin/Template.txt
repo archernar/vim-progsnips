@@ -1,0 +1,15 @@
+public class NNAME {
+
+    void NNAME() {
+    }
+    void NNAME(String sz) {
+    }
+    void NNAME(int i) {
+    }
+
+    public static void main(String[] args) {
+        System.out.println( "Hello World!" );
+        int[] ii = new int[1000];
+    }
+
+}

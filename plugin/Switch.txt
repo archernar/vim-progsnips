@@ -1,0 +1,8 @@
+     switch (sz) {
+          case "E1":
+               szRet= "1";
+               break;
+          case "E2":
+               szRet= "2";
+               break;
+     }

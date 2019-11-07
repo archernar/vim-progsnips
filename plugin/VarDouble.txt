@@ -1,0 +1,9 @@
+     private double NNAME = "";
+
+     public double getNNAME() {
+         return this.NNAME;
+     }
+     public double setNNAME(double NNAME) {
+         this.NNAME = NNAME;
+         return this.NNAME;
+     }

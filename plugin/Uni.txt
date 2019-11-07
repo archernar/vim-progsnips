@@ -1,0 +1,3084 @@
+/*
+  Iterate through elements Java ArrayList using ListIterator Example
+  This Java Example shows how to iterate through the elements of java
+  ArrayList object in forward and backward direction using ListIterator.
+*/
+ 
+import java.util.ArrayList;
+import java.util.ListIterator;
+ 
+public class ArrayListIterator {
+ 
+  public static void main(String[] args) {
+   
+    //create an ArrayList object
+    ArrayList <String>  arrayList = new ArrayList<String>();
+   
+    //Add elements to Arraylist
+    arrayList.add("1");
+    arrayList.add("2");
+    arrayList.add("3");
+    arrayList.add("4");
+    arrayList.add("5");
+   
+    /*
+      Get a ListIterator object for ArrayList using
+      listIterator() method.
+    */
+    ListIterator itr = arrayList.listIterator();
+   
+    /*
+      Use hasNext() and next() methods of ListIterator to iterate through
+      the elements in forward direction.
+    */
+    System.out.println("Iterating through ArrayList elements in forward direction...");
+    while(itr.hasNext())
+      System.out.println(itr.next());
+ 
+    /*
+      Use hasPrevious() and previous() methods of ListIterator to iterate through
+      the elements in backward direction.
+    */
+    System.out.println("Iterating through ArrayList elements in backward direction...");
+    while(itr.hasPrevious())
+      System.out.println(itr.previous());
+   
+  }
+}
+class Bicycle 
+{
+
+
+     public static void main(String[] args) {
+          System.out.println( "Hello World!" );
+     }
+
+
+        // the Bicycle class has two fields 
+        public int gear; 
+        public int speed; 
+        public int position; 
+                
+        public Bicycle() 
+        { 
+                this.gear = 1; 
+                this.speed = 1; 
+                this.position = 0; 
+        } 
+
+        public Bicycle(int gear, int speed) 
+        { 
+                this.gear = gear; 
+                this.speed = speed; 
+                this.position = 0; 
+        } 
+                
+        public void move(int distance) 
+        { 
+                this.position += distance; 
+        } 
+        // the Bicycle class has three methods 
+        public void applyBrake(int decrement) 
+        { 
+                speed -= decrement; 
+        } 
+                
+        public void speedUp(int increment) 
+        { 
+                speed += increment; 
+        } 
+        public int getPosition() 
+        { 
+                return this.position;
+        } 
+        
+        // toString() method to print info of Bicycle 
+        public String toString() 
+        { 
+                return("No of gears are "+gear 
+                                +"\n"
+                                + "speed of bicycle is "+speed); 
+        } 
+} 
+
+class Race {
+}
+
+// operators/BitManipulation.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Using the bitwise operators
+import java.util.*;
+
+public class BitManipulation {
+  public static void main(String[] args) {
+    Random rand = new Random(47);
+    int i = rand.nextInt();
+    int j = rand.nextInt();
+    printBinaryInt("0", 0);
+    printBinaryInt("1", 1);
+    printBinaryInt("2", 2);
+    printBinaryInt("4", 4);
+    printBinaryInt("8", 8);
+    printBinaryInt("16", 16);
+    printBinaryInt("32", 32);
+    printBinaryInt("64", 64);
+    printBinaryInt("128", 128);
+    printBinaryInt("255", 255);
+    printBinaryInt("-8", -8);
+    printBinaryInt("-1", -1);
+    printBinaryInt("+1", +1);
+    int maxpos = 2147483647;
+    printBinaryInt("maxpos", maxpos);
+    int maxneg = -2147483648;
+    printBinaryInt("maxneg", maxneg);
+    printBinaryInt("i", i);
+    printBinaryInt("~i", ~i);
+    printBinaryInt("-i", -i);
+    printBinaryInt("j", j);
+    printBinaryInt("i & j", i & j);
+    printBinaryInt("i | j", i | j);
+    printBinaryInt("i ^ j", i ^ j);
+    printBinaryInt("i << 5", i << 5);
+    printBinaryInt("i >> 5", i >> 5);
+    printBinaryInt("(~i) >> 5", (~i) >> 5);
+    printBinaryInt("i >>> 5", i >>> 5);
+    printBinaryInt("(~i) >>> 5", (~i) >>> 5);
+
+    long l = rand.nextLong();
+    long m = rand.nextLong();
+    printBinaryLong("-1L", -1L);
+    printBinaryLong("+1L", +1L);
+    long ll = 9223372036854775807L;
+    printBinaryLong("maxpos", ll);
+    long lln = -9223372036854775808L;
+    printBinaryLong("maxneg", lln);
+    printBinaryLong("l", l);
+    printBinaryLong("~l", ~l);
+    printBinaryLong("-l", -l);
+    printBinaryLong("m", m);
+    printBinaryLong("l & m", l & m);
+    printBinaryLong("l | m", l | m);
+    printBinaryLong("l ^ m", l ^ m);
+    printBinaryLong("l << 5", l << 5);
+    printBinaryLong("l >> 5", l >> 5);
+    printBinaryLong("(~l) >> 5", (~l) >> 5);
+    printBinaryLong("l >>> 5", l >>> 5);
+    printBinaryLong("(~l) >>> 5", (~l) >>> 5);
+  }
+  static void printBinaryInt(String s, int i) {
+    String sz = String.format("%-30s %20d %50s",s,i,Integer.toBinaryString(i));
+    System.out.println( sz );
+    // System.out.println( s + ", int: " + i + ", binary:\n   " + Integer.toBinaryString(i));
+  }
+  static void printBinaryLong(String s, long l) {
+    String sz = String.format("%-30s %20d %50s",s,l,Long.toBinaryString(l));
+    System.out.println( sz );
+    // System.out.println( s + ", long: " + l + ", binary:\n    " + Long.toBinaryString(l));
+  }
+}
+/* Output: (First 32 Lines)
+-1, int: -1, binary:
+   11111111111111111111111111111111
++1, int: 1, binary:
+   1
+maxpos, int: 2147483647, binary:
+   1111111111111111111111111111111
+maxneg, int: -2147483648, binary:
+   10000000000000000000000000000000
+i, int: -1172028779, binary:
+   10111010001001000100001010010101
+~i, int: 1172028778, binary:
+   1000101110110111011110101101010
+-i, int: 1172028779, binary:
+   1000101110110111011110101101011
+j, int: 1717241110, binary:
+   1100110010110110000010100010110
+i & j, int: 570425364, binary:
+   100010000000000000000000010100
+i | j, int: -25213033, binary:
+   11111110011111110100011110010111
+i ^ j, int: -595638397, binary:
+   11011100011111110100011110000011
+i << 5, int: 1149784736, binary:
+   1000100100010000101001010100000
+i >> 5, int: -36625900, binary:
+   11111101110100010010001000010100
+(~i) >> 5, int: 36625899, binary:
+   10001011101101110111101011
+i >>> 5, int: 97591828, binary:
+   101110100010010001000010100
+(~i) >>> 5, int: 36625899, binary:
+   10001011101101110111101011
+                  ...
+*/
+
+
+
+
+
+public class Bones {
+
+    public static void main(String[] args) {
+        int d1=(new Die()).roll();
+        int d2=(new Die()).roll();
+        System.out.println( d1 + " " + d2 + " " + (d1+d2) );
+
+    }
+
+
+
+}
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class BufferedReaderDemo {
+   public static void main(String[] args) {
+
+       BufferedReader br = null;
+       BufferedReader br2 = null;
+       try{     
+           br = new BufferedReader(new FileReader("B:\\myfile.txt"));           
+
+           //One way of reading the file
+           System.out.println("Reading the file using readLine() method:");
+           String contentLine = br.readLine();
+           while (contentLine != null) {
+              System.out.println(contentLine);
+              contentLine = br.readLine();
+           }
+
+           br2 = new BufferedReader(new FileReader("B:\\myfile2.txt"));
+
+           //Second way of reading the file
+           System.out.println("Reading the file using read() method:");
+           int num=0;
+           char ch;
+           while((num=br2.read()) != -1)
+           {    
+               ch=(char)num;
+               System.out.print(ch);
+           }
+
+       } 
+       catch (IOException ioe) 
+       {
+           ioe.printStackTrace();
+       } 
+       finally 
+       {
+           try {
+              if (br != null)
+                 br.close();
+              if (br2 != null)
+                 br2.close();
+           } 
+           catch (IOException ioe) 
+           {
+                System.out.println("Error in closing the BufferedReader");
+           }
+        }
+   }
+}
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class BufferedWriterDemo {
+   public static void main(String[] args) {
+      BufferedWriter bw = null;
+      try {
+         String mycontent = "This String would be written" +
+            " to the specified File";
+         //Specify the file name and path here
+         File file = new File("C:/myfile.txt");
+
+         /* This logic will make sure that the file 
+          * gets created if it is not present at the
+          * specified location*/
+          if (!file.exists()) {
+             file.createNewFile();
+          }
+
+          FileWriter fw = new FileWriter(file);
+          bw = new BufferedWriter(fw);
+          bw.write(mycontent);
+          System.out.println("File written Successfully");
+
+      } catch (IOException ioe) {
+           ioe.printStackTrace();
+        }
+        finally
+        { 
+           try{
+              if(bw!=null)
+                 bw.close();
+           }catch(Exception ex){
+               System.out.println("Error in closing the BufferedWriter"+ex);
+            }
+        }
+   }
+}
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+ 
+public class CopyFileDemo
+{
+    public static void main(String[] args)
+    {   
+        FileInputStream instream = null;
+        FileOutputStream outstream = null;
+ 
+        try{
+            File infile =new File("C:\\MyInputFile.txt");
+            File outfile =new File("C:\\MyOutputFile.txt");
+ 
+            instream = new FileInputStream(infile);
+            outstream = new FileOutputStream(outfile);
+ 
+            byte[] buffer = new byte[1024];
+ 
+            int length;
+            /*copying the contents from input stream to
+             * output stream using read and write methods
+             */
+            while ((length = instream.read(buffer)) > 0){
+                outstream.write(buffer, 0, length);
+            }
+
+            //Closing the input/output file streams
+            instream.close();
+            outstream.close();
+
+            System.out.println("File copied successfully!!");
+ 
+        }catch(IOException ioe){
+                ioe.printStackTrace();
+         }
+    }
+}
+import java.io.File;
+import java.io.IOException;
+
+public class CreateFileDemo
+{
+   public static void main( String[] args )
+   {    
+      try {
+             File file = new File("C:\\newfile.txt");
+             /*If file gets created then the createNewFile() 
+              * method would return true or if the file is 
+              * already present it would return false
+              */
+             boolean fvar = file.createNewFile();
+             if (fvar){
+                  System.out.println("File has been created successfully");
+             }
+             else{
+                  System.out.println("File already present at the specified location");
+             }
+        } catch (IOException e) {
+                System.out.println("Exception Occurred:");
+                e.printStackTrace();
+          }
+   }
+}
+import java.io.File;
+public class DeleteFileDemo
+{
+   public static void main(String[] args)
+   {    
+      try{
+         //Specify the file name and path
+         File file = new File("C:\\myfile.txt");
+         /*the delete() method returns true if the file is
+          * deleted successfully else it returns false
+          */
+         if(file.delete()){
+            System.out.println(file.getName() + " is deleted!");
+         }else{
+            System.out.println("Delete failed: File didn't delete");
+          }
+       }catch(Exception e){
+           System.out.println("Exception occurred");
+           e.printStackTrace();
+        }
+    }
+}
+import java.util.Random;
+public class DemoRandom {
+        private static void putln() { System.out.println();}
+        private static int putcolpos = 1; 
+        private static void putcol(int n, int i) { 
+            if ( (putcolpos % n) == 0  ) {
+                 System.out.printf("\t%4d\n",i);
+                 putcolpos = 1;
+            }
+            else {
+                 if (putcolpos > 1) System.out.print("\t");
+                 System.out.printf("%4d",i);
+                 putcolpos++;
+            }
+        }
+
+
+        public static void main(String[] args) {
+
+        putln();
+        System.out.println( "Using The Random Class" );
+        System.out.println( "int" );
+        Random rand = new Random();
+
+        int n = rand.nextInt(50);       // nextInt(int i) returns an int from  0 to (i-1).
+        n += 1;                         // Add 1 to the result to get a number from the required range
+                                        // add 1 to create an int from 1 (inclusive) to 50xi (inclusive)
+        System.out.println( n );
+        putln();
+
+        // Another solution is using Math.random():
+        System.out.println( "Using The Math Class" );
+        System.out.println( "double" );
+        double d;
+        d = Math.random() * 49 + 1;          // double value from 1.0 (inclusive) to 50.0 (exclusive)
+        System.out.println( d );
+        putln();
+        // Why?
+        //         Math.random() method returns a random number between 0.0 and 0.9...
+        //         multiply it by 50, so upper limit becomes 0.0 to 48.999... 
+        //         adding 1, it becomes 1.0 to 49.999..., 
+        //         truncate to int, you get 1 to 50
+        // 
+        // or
+
+        System.out.println( "Using The Math Class" );
+        System.out.println( "int" );
+        int i;
+        for (int j=0;j<200;j++) {
+             i = (int)(Math.random() * 50 + 1);   // int value from 1 (inclusive) to 50 (inclusive)
+             putcol( 16, i );
+        }
+        putln();
+        // Why?
+        //         Math.random() method returns a random number between 0.0 and 0.9...
+        //         multiply it by 50, so upper limit becomes 0.0 to 49.999... 
+        //         adding 1, it becomes 1.0 to 50.999..., 
+        //         truncate to int, you get 1 to 50
+
+
+
+
+    }
+
+}
+import java.util.Random;
+
+/**
+ * Models a playing die with sides numbered 1 to N.
+ * All sides have uniform probablity of being rolled.
+ */
+public class Die
+{   public static final int DEFAULT_SIDES = 6;
+
+    private static Random ourRandNumGen = new Random();
+
+    private final int iMyNumSides;
+    private int iMyResult;
+
+
+   /**
+    * Default constructor.<p>
+    * pre: none<br>
+    * post: getNumSides() = DEFAULT_SIDES, getResult() = 1
+    * @param x         xxxxx
+    *                  
+    * @return          <code>true</code> if the image is completely 
+    *                  loaded and was painted successfully; 
+    *                  <code>false</code> otherwise.
+    * @see             Image
+    * @since           1.0
+    */
+    public Die()
+    {   this(DEFAULT_SIDES);
+    }
+
+
+    /**
+     * Create a Die with numSides sides<p>
+     * pre: numSides > 1<br>
+     * post: getNumSides() = numSides, getResult() = 1<br>
+     * An exception will be generated if the preconditions are not met
+     */
+    public Die(int numSides)
+    {   assert numSides > 1 : "Violation of precondition: numSides = " + numSides + "numSides must be greater than 1";
+
+        iMyNumSides = numSides;
+        iMyResult = 1;
+        assert getResult() == 1 && getNumSides() == numSides;
+    }
+
+
+    /**
+     * Create a Die with numSides and top side and result set to result<p>
+     * pre: numSides > 1, 1 <= result <= numSides<br>
+     * post: getNumSides() = numSides, getResult() = 1<br>
+     * An exception will be generated if the preconditions are not met
+     */
+    public Die(int numSides, int result)
+    {   assert numSides > 1 && 1 <= result && result <= numSides : "Violation of precondition";
+
+        iMyNumSides = numSides;
+        iMyResult = result;
+    }
+
+
+    /**
+     * roll this Die. Every side has an equal chance of being the new result<p>
+     * pre: none<br>
+     * post: 1 <= getResult() <= getNumSides()
+     * @return the result of the Die after the roll
+     */
+    public int roll()
+    {   iMyResult = ourRandNumGen.nextInt(iMyNumSides) + 1;
+
+        assert ( 1 <= getResult() ) && ( getResult() <= getNumSides() );
+
+        return iMyResult;
+    }
+
+
+    /**
+     * return how many sides this Die has<p>
+     * pre: none<br>
+     * post: return how many sides this Die has
+     * @return the number of sides on this Die
+     */
+    public int getNumSides()
+    {   return iMyNumSides; }
+
+
+    /**
+     * get the current result or top number of this Die<p>
+     * pre: none<br>
+     * post: return the number on top of this Die
+     * @return the current result of this Die
+     */
+    public int getResult()
+    {   return iMyResult;   }
+
+
+    /**
+     * returns true if this Die and the parameter otherObj are equal<p>
+     * pre: none<br>
+     * post: return true if the parameter is a Die object with the same number of sides as this Die and currently has the same result.
+     * @return true if the the two Dice are equal, false otherwise
+     */
+    public boolean equals(Object otherObj)
+    {   boolean result = true;
+        if(otherObj == null)
+            result = false;
+        else if(this == otherObj)
+            result = true;
+        else if(this.getClass() != otherObj.getClass())
+            result = false;
+        else
+        {   Die otherDie = (Die)otherObj;
+            result = this.iMyResult == otherDie.iMyResult
+                && this.iMyNumSides == otherDie.iMyNumSides;
+        }
+        return result;
+    }
+
+
+    /**
+     * returns a String containing information about this Die<p>
+     * pre: none<br>
+     * post: return a String with information about the current state of this Die
+     * @return: A String with the number of sides and current result of this Die
+     */
+    public String toString()
+    {   return "Num sides " + getNumSides() + " result " + getResult();
+    }
+
+public int Dice() {
+     Die d1 = new Die();
+     Die d2 = new Die();
+     return d1.roll() + d2.roll() ;
+}
+public static void main(String[] args) {
+     Stopwatch st = new Stopwatch();
+     Die d1 = new Die();
+     Die d2 = new Die();
+     System.out.println( d1.roll() + "  " + d2.roll());
+}
+
+}// end of Die class
+public class DLCConst {
+     DLCConst() {
+          super();
+     }
+
+     static final String DQCDQCO             = "\"c\":";
+     static final String DQCDQ               = "\"c\"";
+     static final String DQ                  = "\"";
+     static final String DQ_COMMA            = "\",";
+     static final String szNL                = "\n";
+     static final String NL                  = "\n";
+     static final String szJSON_OBJECT_OPEN  =   "{\n";
+     static final String JSONOO              =   "{\n";
+     static final String szJSON_OBJECT_CLOSE =   "\n}";
+     static final String JSONOC              =   "\n}";
+     static final String szJSON_COLS_OPEN    =   "\"cols\" : [";
+     static final String szJSON_COLS_CLOSE   =   "],";
+     static final String JSONCO              =   "\"cols\" : [";
+     static final String JSONCC              =   "],";
+     static final String szJSON_ROWS_OPEN    =   "\"rows\" : [";
+     static final String szJSON_ROWS_CLOSE   =   "\n]";
+     static final String JSONRO              =   "\"rows\" : [";
+     static final String JSONROC             =   "\n]";
+     static final String szJSON_DATA_OPEN    =   "\"data\" : [";
+     static final String JSONDO              =   "\"data\" : [";
+     static final String szJSON_DATA_CLOSE   =   "\n]";
+     static final String JSONDC              =   "\n]";
+     static final String szJSON_ROWS_CLOSE_COMMA  =   "\n],";
+     static final String szJSON_DATA_CLOSE_COMMA  =   "\n],";
+     static final String szJSON_ACTUALROW_OPEN    =   "{\"c\":";
+     static final String szJSON_ACTUALROW_CLOSE   =   "}";
+     static final String szCOMMA =               ",";
+     static final String COMMA =                 ",";
+     static final String szCOMMA_NEWLINE =       ",\n";
+     static final String COMMA_NEWLINE =         ",\n";
+     static final String szLSQR =        "[";
+     static final String LSQR =          "[";
+     static final String szRSQR =        "]";
+     static final String RSQR =          "]";
+     static final String szLSQG =        "{";
+     static final String LSQG =          "{";
+     static final String szRSQG =        "}";
+     static final String RSQG =          "}";
+     static final String szJSON_COLS =   "\"cols\" : [";
+     static final String szJSON_ROWS =   "\"rows\" : [";
+     static final String szJSON_COMMA =  ",";
+     static final String szSQDQVCO =     "{\"v\":";
+     static final String SQDQVCO =       "{\"v\":";
+     static final String szSQDQVCODQ =   "{\"v\":\"";
+     static final String SQDQVCODQ =     "{\"v\":\"";
+     static final String szDQV =         "\"v\"";
+     static final String DQV =           "\"v\"";
+     static final String szDQC =         "\"c\"";
+     static final String DQC =           "\"c\"";
+     static final String szDQID =        "\"id\"";
+     static final String szDQLABEL =     "\"label\"";
+     static final String DQLABEL =       "\"label\"";
+     static final String szDQTYPE =      "\"type\"";
+     static final String DQTYPE =        "\"type\"";
+     static final String szDQCOLS =      "\"cols\"";
+     static final String DQCOLS =        "\"cols\"";
+     static final String szDQROWS =      "\"rows\"";
+     static final String DQROWS =        "\"rows\"";
+     static final String M_SYSTEM =      "StatuCheckFailed_System";
+     static final String M_INSTANCE =    "StatuCheckFailed_Instance";
+
+}
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Date;
+import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.text.SimpleDateFormat;
+import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+
+public class DLCUtil {
+     private static final DLCConst CONST = new DLCConst();
+     private boolean debug_on = false;
+     private boolean assert_on = false;
+     private boolean timestamp_on = false;
+
+     long startTime;
+     long endTime;
+     String labelTime;
+     String prefix = "-";
+
+
+// ***************************************************************************************************************************     
+// CODE-SECTION COnstructors
+// 
+// ***************************************************************************************************************************     
+     DLCUtil() {
+          super();
+     }
+     DLCUtil(boolean b) {
+          super();
+          this.debug_on = b;
+          this.labelTime = "";
+     }
+// ***************************************************************************************************************************     
+// CODE-SECTION Class_Variable_Control
+// 
+// ***************************************************************************************************************************     
+     public String nothing(String sz)   { return (sz); }
+     public String nothing(Double dd)   { return (dd.toString()); }
+     public String nothing(int i)       { return (new Integer(i).toString()); }
+     public DLCUtil Prefix(String sz)   { this.prefix = sz; return this; }
+     public DLCUtil ClearPrefix()       { this.prefix = ""; return this; }
+     public void setPrefix(String sz)   { this.prefix = sz; }
+     public void setCaretPrefix()       { this.prefix = "> "; }
+     public void unSetCaretPrefix()     { this.prefix = ""; }
+     public void resetPrefix(String sz) { this.prefix = ""; }
+// ***************************************************************************************************************************     
+// CODE-SECTION Simple_String_Format
+// 
+// ***************************************************************************************************************************     
+
+/** 
+     * Draws as much of the specified image as is currently available
+     * with its northwest corner at the specified coordinate (x, y).
+     * This method will return immediately in all cases, even if the
+     * entire image has not yet been scaled, dithered and converted
+     * for the current output device.
+     * <p>
+     * If the current output representation is not yet complete then
+     * the method will return false and the indicated 
+     * {@link ImageObserver} object will be notified as the
+     * conversion process progresses.
+     *
+     * @param img       the image to be drawn
+     * @param x         the x-coordinate of the northwest corner
+     *                  of the destination rectangle in pixels
+     * @param y         the y-coordinate of the northwest corner
+     *                  of the destination rectangle in pixels
+     * @param observer  the image observer to be notified as more
+     *                  of the image is converted.  May be 
+     *                  <code>null</code>
+     * @return          <code>true</code> if the image is completely 
+     *                  loaded and was painted successfully; 
+     *                  <code>false</code> otherwise.
+     * @see             Image
+     * @see             ImageObserver
+     * @since           1.0
+     */     
+     
+     public String dq(int n) {
+     StringBuilder sb = new StringBuilder();
+     return (sb.append(CONST.DQ).append(n).append(CONST.DQ).toString());
+     }
+     public String dq(Date d) {
+     StringBuilder sb = new StringBuilder();
+     return (sb.append(CONST.DQ).append(d).append(CONST.DQ).toString());
+     }
+     public String dq(Double dd) {
+     StringBuilder sb = new StringBuilder();
+     return (sb.append(CONST.DQ).append(dd).append(CONST.DQ).toString());
+     }
+     public String dq(long ddd) {
+     StringBuilder sb = new StringBuilder();
+     return (sb.append(CONST.DQ).append(ddd).append(CONST.DQ).toString());
+     }
+     public String dqcomma(int n) {
+     StringBuilder sb = new StringBuilder();
+     return (sb.append(CONST.DQ).append(n).append(CONST.DQ).append(CONST.COMMA).toString());
+     }
+     public String dqcomma(Date d) { return "\""+d+"\",";  }
+     public String dqcomma(Double dd) { return "\""+dd+"\",";  }
+     public String dqcomma(long ddd) { return "\""+ddd+"\",";  }
+     public String dqcomma(String sz) {
+     StringBuilder sb = new StringBuilder();
+     return (sb.append(CONST.DQ).append(nonull(sz)).append("\",").toString());
+     }
+     public String dqcolon(String sz) {
+     StringBuilder sb = new StringBuilder();
+     return (sb.append("\"").append(nonull(sz)).append("\": ").toString());
+     }
+     public String dq(String sz) {
+     StringBuilder sb = new StringBuilder();
+     return (sb.append("\"").append(nonull(sz)).append("\"").toString());
+     }
+
+
+
+// ***************************************************************************************************************************     
+// CODE-SECTION JSON_String_Format
+// 
+// ***************************************************************************************************************************     
+     public String json(Double dd) { 
+          StringBuilder sb = new StringBuilder();
+          return (sb.append("{").append(CONST.szDQV).append(":\"").append(dd.toString()).append("\"}").toString());
+     }
+     public String json(double dd) { 
+          StringBuilder sb = new StringBuilder();
+          Double d = new Double(dd);
+          return (sb.append("{").append(CONST.szDQV).append(":\"").append(d.toString()).append("\"}").toString());
+     }
+     public String json(String sz1) { 
+          StringBuilder sb = new StringBuilder();
+          return (sb.append("{").append(CONST.szDQV).append(":\"").append(sz1).append("\"}").toString());
+     }
+     public String jsonc(String sz1) { 
+          StringBuilder sb = new StringBuilder();
+          return (sb.append("{").append(CONST.szDQV).append(":\"").append(sz1).append("\"}").append(CONST.szCOMMA).toString());
+     }
+     public String json(int i) { 
+          String sz1 = new Integer(i).toString();
+          StringBuilder sb = new StringBuilder();
+          return (sb.append("{").append(CONST.szDQV).append(":\"").append(sz1).append("\"}").toString());
+     }
+     public String jsonc(int i) { 
+          String sz1 = new Integer(i).toString();
+          StringBuilder sb = new StringBuilder();
+          return (sb.append("{").append(CONST.szDQV).append(":\"").append(sz1).append("\"}").append(CONST.szCOMMA).toString());
+     }
+     public String concatter(String pre, String post, String delim, String... args) { 
+          StringBuilder sb = new StringBuilder(pre);
+          for (int i=0;i<(args.length-1);i++) sb.append(args[i]).append(delim);
+          return( sb.append(args[args.length-1]).append(post).toString() );           
+     }
+     public String jsonconcatter(String pre, String post, String delim, String... args) { 
+          StringBuilder sb = new StringBuilder(pre);
+          for (int i=0;i<(args.length-1);i++) sb.append(json(args[i])).append(delim);
+          return( sb.append(json(args[args.length-1])).append(post).toString() );           
+     }
+
+
+// ***************************************************************************************************************************     
+// CODE-SECTION Assertion
+// 
+// ***************************************************************************************************************************     
+     public DLCUtil assert_on()  { this.assert_on = true; return this; }
+     public DLCUtil assert_off() { this.assert_on = false; return this; }
+     public DLCUtil assertion_on()  { this.assert_on = true; return this; }
+     public DLCUtil assertion_off() { this.assert_on = false; return this; }
+     public DLCUtil debugon() { this.debug_on = true; return this; }
+     public DLCUtil debugoff() { this.debug_on = false; return this; }
+     public DLCUtil debug_on() { this.debug_on = true; return this; }
+     public DLCUtil debug_off() { this.debug_on = false; return this; }
+     public DLCUtil timestamp_on()  { this.timestamp_on = true;  return this; }
+     public DLCUtil timestamp_off() { this.timestamp_on = false; return this; }
+     public DLCUtil ts_on()  { this.timestamp_on = true;  return this; }
+     public DLCUtil ts_off() { this.timestamp_on = false; return this; }
+     public DLCUtil assertion(boolean b, String... args) { 
+          if (!b) for (int i=0;i<(args.length);i++) sysOut("ASSERTFAIL: " + args[i]);
+          return this;
+     }
+     private String getTimeStamp(boolean b) { return b ? (new java.sql.Timestamp( (new java.util.Date()).getTime())).toString() : ""; }
+// ***************************************************************************************************************************     
+// CODE-SECTION Debug_Output
+// 
+// ***************************************************************************************************************************     
+     public void sysOutTitles(boolean b) { 
+          if (b) System.out.println("TimeStamp, Prefix, Trace, Message");
+     }
+     public void sysOut(boolean b, String... args) { 
+          StringBuilder sb = new StringBuilder();
+          if (b && debug_on) {
+               String ts = getTimeStamp(true);
+               String c=",";
+//             String className = "";
+//             if (!(this.obj == null)) className = (this.obj).getClass().getName();
+//             https://docs.oracle.com/javase/7/docs/api/java/lang/StackTraceElement.html
+//             String fullClassName = Thread.currentThread().getStackTrace()[3].getClassName();
+//             String className     = fullClassName.substring(fullClassName.lastIndexOf(".") + 1);
+//             String methodName    = Thread.currentThread().getStackTrace()[3].getMethodName();
+//             int lineNumber       = Thread.currentThread().getStackTrace()[3].getLineNumber();
+               String traceStamp    = Thread.currentThread().getStackTrace()[3].toString();
+
+               for (int i=0;i<(args.length);i++) {
+                    // String sz = "("+ (new Integer(args[i].length())).toString() + ")"; 
+                    // System.out.println(ts +c+ sz +c+ this.prefix +c+ className +c+ args[i]);
+                    // System.out.println(ts  +c+ this.prefix +c+ traceStamp +c+ className +c+ methodName +c+ lineNumber +c+ args[i]);
+                    // System.out.println(ts +c+ this.prefix +c+ traceStamp +c+ args[i]);
+                    System.out.println(sb.append(ts).append(c).append(this.prefix).append(c).append(traceStamp).append(c).append(args[i]).toString() ); 
+                    sb.setLength(0);
+               }
+          }
+     }
+     public void sysOut(String... args) { 
+          this.sysOut(true, args);
+     }
+     public void sysOut(String sz, int i) { 
+          this.sysOut(true, sz + Integer.toString(i)); 
+     }
+     public void sysOut(String sz, double i) { 
+          this.sysOut(true, sz + Double.toString(i)); 
+     }
+     public void sysOut(int i) { 
+          this.sysOut(true, Integer.toString(i)); 
+     }
+     public void sysOut(double i) { 
+          this.sysOut(true, Double.toString(i)); 
+     }
+     public void sysOut(long i) { 
+          this.sysOut(true, Long.toString(i)); 
+     }
+     public String HTMLselect(String sz) { 
+          return "<select>" + sz + "</select>";
+     }
+
+// ***************************************************************************************************************************     
+// CODE-SECTION Utilities
+// 
+// ***************************************************************************************************************************     
+public boolean regex(String sz, String regexpattern) {
+     if (regexpattern.equals("")) return false;
+     Pattern r = Pattern.compile(regexpattern);
+     Matcher m = r.matcher(sz);
+     return(m.find());
+}
+
+     public int sz2int(String sz) { 
+         return(Integer.parseInt(sz.equals("") ? "0" : sz));
+     }
+     private String varStringConcat(String delimIn, String... args) { 
+          String delim="";
+          StringBuilder sb = new StringBuilder();
+          for (int i=0;i<(args.length);i++) {
+              sb.append(delim);
+              sb.append(args[i]);
+              delim=delimIn;
+          }
+          return sb.toString();
+     }
+     public String nonull(String sz,String pre,String post,String nix) {
+         return ( ( sz  == null ) ? nix : (pre+sz+post)  );
+     }
+     public String nonull(String sz) {
+          return ( ( sz  == null ) ? "-" : sz );
+     }
+     public String nonewlines(String sz) { 
+          String str = this.nonull(sz);
+          return(str.replaceAll("(\\r|\\n)", ""));
+     } 
+     public int mapInstanceStateCode(int n) { 
+     int nRet = -1; 
+     if ( n == 16 ) nRet = +1; 
+     return nRet; 
+     } 
+     public String padding(String sz) { 
+     String sb = ""; 
+     int n = sz.length(); 
+     for (int i=0;i<n;i++) sb = sb + " "; 
+     return(sb); 
+     } 
+     public String padder(String sz, int m) { 
+     String sb = ""; 
+     int n = sz.trim().length(); 
+     if ( n > m) n = m; 
+     sb = sz.trim(); 
+     for (int i=n;i<m;i++) sb = sb + " "; 
+     return(sb); 
+     } 
+     public String padder(String sz) { 
+     String sb = ""; 
+     int m = 24; 
+     int n = sz.trim().length(); 
+     if ( n > m) n = m; 
+     sb = sz.trim(); 
+     for (int i=n;i<m;i++) sb = sb + " "; 
+     return(sb); 
+     }
+     public String mapRegionCodesToNames(String sz) {
+     String szRet = "";
+     switch (sz) {
+               case "E1":
+                   szRet= "US East 1 (N. Virginia) Region";
+                   break;
+               case "E2":
+                   szRet= "US East 2 (Ohio) Region";
+                   break;
+               case "W1":
+                   szRet="West (N. California) Region";
+                   break;
+               case "W2":
+                   szRet="US West (Oregon) Region";
+                   break;
+               case "A1":
+                   szRet="AP 1";
+                   break;
+               case "A2":
+                   szRet="AP 2";
+                   break;
+               case "A3":
+                   szRet="AP 3";
+                   break;
+               case "S1":
+                   szRet="SA 1";
+                   break;
+               case "U1":
+                   szRet="EU 1";
+                   break;
+               case "U2":
+                   szRet="EU 2";
+                   break;
+     }
+     return (szRet);
+}
+     public void basicExceptionHandling(Exception e)  {
+          System.out.println("Caught Exception: "+ e.getMessage());
+          e.printStackTrace(System.out);
+     }
+     public String getProperties(String fn, String pn) {
+          Properties prop = new Properties();
+          InputStream input = null;
+          String szRet = "";
+          try {
+                  input = new FileInputStream(fn);
+                  // load a properties file
+                  //prop.load(Thread.currentThread().getServletContext().getResourceAsStream("/WEB-INF/" + fn));
+                  prop.load(input);
+                  // get the property value and print it out
+                  szRet = prop.getProperty(pn);
+          } catch (IOException ex) {
+                  ex.printStackTrace();
+          } finally {
+                  if (input != null) {
+                          try {
+                                  input.close();
+                          } catch (IOException e) {
+                                  e.printStackTrace();
+                          }
+                  }
+          }
+          return(szRet);
+     }
+
+     public String getAnchor(String url, String name) {
+          StringBuilder sb = new StringBuilder();
+          sb.append("<a target='_blank' href='").append(url).append("'>").append(name).append("</a>");
+           return(sb.toString());
+     }
+     public String getStartAnchor(String env, String reg, String node) {
+          return("<a href='"+ getStartUrl(env, reg, node) + "'>start</a>");
+     }
+     public String getStartUrl(String env, String reg, String node) {
+       StringBuilder sb = new StringBuilder();
+       sb.append("p1?env=").append(env)
+                           .append("&loc=").append(reg)
+                           .append("&node=").append(node)
+                           .append("&op=").append("start");
+          return(sb.toString());
+     }
+     public String getStopAnchor(String env, String reg, String node) {
+          return("<a href='"+ getStopUrl(env, reg, node) + "'>stop</a>");
+     }
+     public String getStopUrl(String env, String reg, String node) {
+       StringBuilder sb = new StringBuilder();
+       sb.append("p1?env=").append(env)
+                           .append("&loc=").append(reg)
+                           .append("&node=").append(node)
+                           .append("&op=").append("stop");
+       return(sb.toString());
+     }
+     public String getServiceUrl(String env, String op,String qual,String node,String reg,int period,int hours) {
+          StringBuilder sb = new StringBuilder();
+       sb.append("p1?env=").append(env)
+                           .append("&op=").append(op).append("&qual=").append(qual)
+                           .append("&node=").append(node)
+                           .append("&loc=").append(reg)
+                           .append("&period=").append(Integer.toString(period))
+                           .append("&hours=").append(Integer.toString(hours));
+       return(sb.toString());
+     }
+
+
+}
+
+public class Do {
+
+    public void run() {
+            System.out.println( "Do..." );
+    }
+
+
+
+}
+/******************************************************************/
+/* Author: CS307 Course Staff                                     */
+/* Date: February 14, 2005                                        */
+/* Description: Demos constructors, static vs instance methods,   */
+/*              and method overloading.                           */
+/******************************************************************/
+public class Example
+{
+    private int x;
+
+    public Example()
+    {
+        // assign default value
+        x = 0;
+    }
+
+    public Example(int x)
+    {
+        // use this.x to refer to the instance variable x
+        // use x to refer to a local variable x (more specifically,
+        // method parameter x)
+        this.x = x;
+    }
+
+    public Example(Example otherDemo)
+    {
+        // copy the value from the otherDemo
+        this.x = otherDemo.x;
+    }
+
+    // static method (aka class method)
+    public static void s1() {
+        return;
+    }
+    // instance method
+    public void i1() {
+        return;
+    }
+
+    // static calling static OK
+    // static calling instance is a compile-time error
+    public static void s2() {
+//        i1();     // compile-time error
+        s1();       // Example.s1
+        return;
+    }
+
+    // instance calling static OK
+    // instance calling instance OK
+    public void i2() {
+        s1();       // Example.s1();
+        i1();       // this.i1();
+        return;
+    }
+
+    // call various versions of overload() based on their 
+    // list of parameters (aka function signatures)
+    public void overloadTester() {
+        System.out.println("overloadTester:\n");
+
+        overload((byte)1);
+        overload((short)1);
+        overload(1);
+        overload(1L);
+        overload(1.0f);
+        overload(1.0);
+        overload('1');
+        overload(true);
+    }
+    
+    public void overload(byte b) {
+        System.out.println("byte");
+    }    
+    public void overload(short s) {
+        System.out.println("short");
+    }    
+    public void overload(int i) {
+        System.out.println("int");
+    }
+    public void overload(long l) {
+        System.out.println("long");
+    }
+    public void overload(float f) {
+        System.out.println("float");
+    }
+    public void overload(double d) {
+        System.out.println("double");
+    }    
+    public void overload(char c) {
+        System.out.println("char");
+    }    
+    public void overload(boolean b) {
+        System.out.println("boolean");
+    }    
+
+    public static void main(String[] args) {
+        Example dc = new Example();
+        dc.overloadTester();
+    }
+}
+
+// end of Example.java
+
+import java.io.File;
+import java.io.IOException;
+ 
+public class FileIsHiddenDemo
+{
+ 
+    public static void main(String[] args) throws IOException, SecurityException
+    {   
+        // Provide the complete file path here
+        File file = new File("c:/myfile.txt");
+ 
+        if(file.isHidden()){
+                System.out.println("The specified file is hidden");
+        }else{
+                System.out.println("The specified file is not hidden");
+        }
+    }
+}
+import java.io.File;
+import java.text.SimpleDateFormat;
+public class FileModifiedDateDemo
+{
+    public static void main(String[] args)
+    {   
+        //Specify the file path and name
+        File file = new File("C:\\Myfile.txt");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        System.out.println("Last Modified Date: " + sdf.format(file.lastModified()));
+    }
+}
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class FileOutputStreamDemo {
+   public static void main(String[] args) {
+      FileOutputStream fos = null;
+      File file;
+      String mycontent = "This is my Data which needs" +
+             " to be written into the file";
+      try {
+          //Specify the file path here
+          file = new File("C:/myfile.txt");
+          fos = new FileOutputStream(file);
+
+          /* This logic will check whether the file
+           * exists or not. If the file is not found
+           * at the specified location it would create
+           * a new file*/
+          if (!file.exists()) {
+             file.createNewFile();
+          }
+
+          /*String content cannot be directly written into
+           * a file. It needs to be converted into bytes
+           */
+          byte[] bytesArray = mycontent.getBytes();
+
+          fos.write(bytesArray);
+          fos.flush();
+          System.out.println("File Written Successfully");
+       } 
+       catch (IOException ioe) {
+          ioe.printStackTrace();
+       } 
+       finally {
+          try {
+             if (fos != null) 
+             {
+                 fos.close();
+             }
+          } 
+          catch (IOException ioe) {
+             System.out.println("Error in closing the Stream");
+          }
+       }
+   }
+}
+import java.io.File;
+import java.io.IOException;
+ 
+public class FileSetReadOnlyDemo
+{
+ 
+    public static void main(String[] args) throws IOException
+    {   
+        File myfile = new File("C://Myfile.txt");
+        //making the file read only
+        boolean flag = myfile.setReadOnly();    
+        if (flag==true)
+        {
+           System.out.println("File successfully converted to Read only mode!!");
+        }
+        else
+        {
+           System.out.println("Unsuccessful Operation!!");
+        }
+    }
+}
+import java.io.File;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+
+class FileWriterBufferedWriterAppendDemo
+{
+   public static void main( String[] args )
+   {    
+      try{
+        String content = "This is my content which would be appended " +
+                "at the end of the specified file";
+        //Specify the file name and path here
+        File file =new File("C://myfile.txt");
+
+        /* This logic is to create the file if the
+         * file is not already present
+         */
+        if(!file.exists()){
+           file.createNewFile();
+        }
+
+        //Here true is to append the content to file
+        FileWriter fw = new FileWriter(file,true);
+        //BufferedWriter writer give better performance
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(content);
+        //Closing BufferedWriter Stream
+        bw.close();
+
+        System.out.println("Data successfully appended at the end of file");
+
+      }catch(IOException ioe){
+         System.out.println("Exception occurred:");
+         ioe.printStackTrace();
+       }
+   }
+}
+import java.util.*; 
+import java.lang.*; 
+import java.io.*; 
+class Geeks { 
+
+        static void frequencyNumber(int arr[], int size) 
+        { 
+                String sz = "I Just Added This One";
+                // Creating a HashMap containing integer 
+                // as a key and occurrences as a value 
+                HashMap<Integer, Integer> freqMap 
+                        = new HashMap<Integer, Integer>(); 
+                String szw = "I Just Added This Onei Too";
+
+                for (int i=0;i<size;i++) { 
+                        if (freqMap.containsKey(arr[i])) { 
+
+                                // If number is present in freqMap, 
+                                // incrementing it's count by 1 
+                                freqMap.put(arr[i], freqMap.get(arr[i]) + 1); 
+                        } 
+                        else { 
+
+                                // If integer is not present in freqMap, 
+                                // putting this integer to freqMap with 1 as it's value 
+                                freqMap.put(arr[i], 1); 
+                        } 
+                } 
+
+                // Printing the freqMap 
+                for (Map.Entry entry : freqMap.entrySet()) { 
+                        System.out.println(entry.getKey() + " " + entry.getValue()); 
+                } 
+        } 
+
+
+
+
+        public static void sumArray(int arr[], int n) 
+        { 
+                /* Allocate memory for temporary arrays 
+                leftSum[], rightSum[] and Sum[]*/
+                int leftSum[] = new int[n]; 
+                int rightSum[] = new int[n]; 
+                int Sum[] = new int[n]; 
+
+                int i = 0, j = 0; 
+
+                /* Left most element of left array is 
+                always 0 */
+                leftSum[0] = 0; 
+
+                /* Right most element of rght array 
+                is always 0 */
+                rightSum[n - 1] = 0; 
+
+                /* Construct the left array*/
+                for (i = 1; i < n; i++) 
+                        leftSum[i] = arr[i - 1] + leftSum[i - 1]; 
+
+                /* Construct the right array*/
+                for (j = n - 2; j >= 0; j--) 
+                        rightSum[j] = arr[j + 1] + rightSum[j + 1]; 
+
+                /* Construct the sum array using 
+                left[] and right[] */
+                for (i = 0; i < n; i++) 
+                        Sum[i] = leftSum[i] + rightSum[i]; 
+
+                /*print the sum array*/
+                for (i = 0; i < n; i++) 
+                        System.out.print(Sum[i] + " "); 
+        } 
+
+        /* Driver function to test above function*/
+        public static void main(String[] args) 
+        { 
+                int arr[] = { 3, 6, 4, 8, 9 }; 
+                int n = arr.length; 
+                sumArray(arr, n); 
+                System.out.println( "" ); 
+
+                int arr2[] = {10, 20, 20, 10, 10, 20, 5, 20}; 
+                int size = arr.length; 
+                frequencyNumber(arr,size); 
+                System.out.println( "" ); 
+        } 
+} 
+
+//Usually you will require both swing and awt packages
+// even if you are working with just swings.
+import javax.swing.*;
+import java.awt.*;
+class Gui {
+    public static void main(String args[]) {
+
+        //Creating the Frame
+        JFrame frame = new JFrame("Chat Frame");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 400);
+
+        //Creating the MenuBar and adding components
+        JMenuBar mb = new JMenuBar();
+        JMenu m1 = new JMenu("FILE");
+        JMenu m2 = new JMenu("Help");
+        mb.add(m1);
+        mb.add(m2);
+        JMenuItem m11 = new JMenuItem("Open");
+        JMenuItem m22 = new JMenuItem("Save as");
+        m1.add(m11);
+        m1.add(m22);
+
+        //Creating the panel at bottom and adding components
+        JPanel panel = new JPanel(); // the panel is not visible in output
+        JLabel label = new JLabel("Enter Text");
+        JTextField tf = new JTextField(10); // accepts upto 10 characters
+        JButton send = new JButton("Send");
+        JButton reset = new JButton("Reset");
+        panel.add(label); // Components Added using Flow Layout
+        panel.add(label); // Components Added using Flow Layout
+        panel.add(tf);
+        panel.add(send);
+        panel.add(reset);
+
+        // Text Area at the Center
+        JTextArea ta = new JTextArea();
+
+        //Adding Components to the frame.
+        frame.getContentPane().add(BorderLayout.SOUTH, panel);
+        frame.getContentPane().add(BorderLayout.NORTH, mb);
+        frame.getContentPane().add(BorderLayout.CENTER, ta);
+        frame.setVisible(true);
+    }
+}
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.zip.GZIPOutputStream;
+ 
+public class GzipFileDemo
+{
+  public static void main( String[] args )
+  {
+    GzipFileDemo zipObj = new GzipFileDemo();
+    zipObj.gzipMyFile();
+  }
+ 
+  public void gzipMyFile(){ 
+    byte[] buffer = new byte[1024];
+    try{
+      //Specify Name and Path of Output GZip file here
+      GZIPOutputStream gos = 
+       new GZIPOutputStream(new FileOutputStream("B://Java/Myfile.gz"));
+ 
+      //Specify location of Input file here
+      FileInputStream fis = 
+       new FileInputStream("B://Java/Myfile.txt");
+ 
+      //Reading from input file and writing to output GZip file
+      int length;
+      while ((length = fis.read(buffer)) > 0) {
+ 
+        /* public void write(byte[] buf, int off, int len): 
+         * Writes array of bytes to the compressed output stream.
+         * This method will block until all the bytes are written.
+         * Parameters:
+         * buf - the data to be written
+         * off - the start offset of the data
+         * len - the length of the data
+         */
+        gos.write(buffer, 0, length);
+      }
+ 
+      fis.close();
+ 
+      /* public void finish(): Finishes writing compressed 
+       * data to the output stream without closing the 
+       * underlying stream.
+       */
+      gos.finish();
+      gos.close();
+ 
+      System.out.println("File Compressed!!");
+ 
+    }catch(IOException ioe){
+        ioe.printStackTrace(); 
+     }
+  }
+}
+import java.util.HashSet;
+public class HashSetDemo {
+/*
+ * HashSet doesn’t maintain any order, the elements would be returned in any random order.
+ * HashSet doesn’t allow duplicates. If you try to add a duplicate element in HashSet, the old value would be overwritten.
+ * HashSet allows null values however if you insert more than one nulls it would still return only one null value.
+ * HashSet is non-synchronized.
+ * The iterator returned by this class is fail-fast which means iterator would throw ConcurrentModificationException
+ * if HashSet has been modified after creation of iterator, by any means except iterator’s own remove method.
+*/
+
+
+   public static void main(String args[]) {
+      // HashSet declaration
+      HashSet<String> hset = 
+               new HashSet<String>();
+
+      // Adding elements to the HashSet
+      hset.add("Apple");
+      hset.add("Mango");
+      hset.add("Grapes");
+      hset.add("Orange");
+      hset.add("Fig");
+      //Addition of duplicate elements
+      hset.add("Apple");
+      hset.add("Mango");
+      //Addition of null values
+      hset.add(null);
+      hset.add(null);
+
+      //Displaying HashSet elements
+      System.out.println(hset);
+    }
+}
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+import java.util.Random;
+import java.util.Map;
+import java.util.HashMap;
+public class Helper {
+     Helper() {
+          super();
+     }
+     public static String dx(String sz) { return sz; }
+     public static String dx(int n) { return Integer.toString(n);  }
+     public static String randomDollar( int len ) {
+          String LL = "01";
+          String AB = "0123";
+          Random rnd = new Random();
+          StringBuilder sb = new StringBuilder();
+          sb.append( LL.charAt( rnd.nextInt(LL.length()) ) );
+          sb.append( "." );
+          sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+          sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+          return sb.toString();
+     }
+     public static String randomNumericString( int len ) {
+          String AB = "123456789";
+          Random rnd = new Random();
+          StringBuilder sb = new StringBuilder( len );
+          for( int i = 0; i < len; i++ )
+               sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+          return sb.toString();
+     }
+     public static String randomNameString( int len )
+     {
+        String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Random rnd = new Random();
+        StringBuilder sb = new StringBuilder( len );
+        sb.append( alpha.charAt( rnd.nextInt(alpha.length()) ) );
+
+        for( int i = 0; i < (len-1); i++ )
+             sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+        return sb.toString();
+     }
+     public static String randomString( int len ) {
+        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Random rnd = new Random();
+        StringBuilder sb = new StringBuilder( len );
+        for( int i = 0; i < len; i++ )
+             sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+        return sb.toString();
+     }   
+    public static String getKeyMap(Map<String,String> m, String hashKey, String def ) {
+       if (m.get(hashKey) == null) {
+           return def;
+       } else {
+           return m.get(hashKey).toString();
+       }
+    }
+    public static int getKeyMap(Map<String,Integer> m, String hashKey, int def ) {
+       if (m.get(hashKey) == null) {
+           return def;
+       } else {
+           return m.get(hashKey);
+       }
+    }
+    public static Integer getKeyMap(Map<String,Integer> m, String hashKey, Integer def ) {
+       if (m.get(hashKey) == null) {
+           return def;
+       } else {
+           return m.get(hashKey);
+       }
+    }
+
+}
+import java.io.*;
+import java.nio.file.*;
+
+public class Hex {
+  public static String format(byte[] data) {
+    StringBuilder result = new StringBuilder();
+    int n = 0;
+    int w = 32;
+    for(byte b : data) {
+      if(n % w == 0)
+        result.append(String.format("%05X: ", n));
+      result.append(String.format("%02X ", b));
+      n++;
+      if(n % w == 0) result.append("\n");
+    }
+    result.append("\n");
+    return result.toString();
+  }
+
+
+
+  public static void main(String[] args) throws Exception {
+    if(args.length == 0)
+      // Test by displaying this class file:
+      System.out.println(format( Files.readAllBytes(Paths.get( "classes/Hex.class"))));
+    else
+      System.out.println(format( Files.readAllBytes(Paths.get(args[0]))));
+  }
+}
+import java.util.Scanner;
+public class HW1 
+
+{
+
+        public static void main(String[] args) 
+
+        {
+
+                double inches;
+
+                double feet;
+
+                int INCHES_IN_FOOT = 12;
+
+                
+
+                double grams;
+
+                double pounds;
+
+                double GRAMS_IN_POUNDS = 453.592;
+
+                
+
+                double kilograms;
+
+                double milligrams;
+
+                double equal_weight_in_milligrams;
+
+                
+
+                /*
+
+                 * This portion of the program reads the number of inches from the user and converts it to feet.
+
+                 */
+
+                Scanner in = new Scanner(System.in);
+
+                System.out.println("Please enter inches: ");
+
+                inches = in.nextDouble();
+
+                
+
+                feet = inches/INCHES_IN_FOOT;
+
+                
+
+                System.out.println(feet + " feet");
+
+                
+
+                /*
+
+                 * This portion reads the number of grams from the user and converts it to pounds.
+
+                 */
+
+                System.out.println("Please enter grams: ");
+
+                grams = in.nextDouble();
+
+                
+
+                pounds = grams/GRAMS_IN_POUNDS;
+
+                
+
+                System.out.println(pounds + " pounds");
+
+                
+
+                /*
+
+                 * This portion reads values representing weight in kilograms, grams, and milligrams, then converts it all into only milligrams.
+
+                 */
+
+                System.out.println("Please enter the amount of kilograms: ");
+
+                kilograms = in.nextDouble();
+
+                
+
+                System.out.println("Please enter the amount of grams: ");
+
+                grams = in.nextDouble();
+
+                
+
+                System.out.println("Please enter the amount of milligrams: ");
+
+                milligrams = in.nextDouble();
+
+                
+
+                equal_weight_in_milligrams = (kilograms*1000000)+(grams*1000)+(milligrams);
+
+                System.out.println("Equivalent weight in milligrams: " + equal_weight_in_milligrams);
+
+                
+
+                /*
+
+                 * This portion reverses the computation of the previous portion. It reads the weight in milligrams 
+
+                 */
+
+                System.out.println("Please enter milligrams: ");
+
+                milligrams = in.nextDouble();
+
+                
+
+                kilograms = (int)(milligrams/1000000);
+
+                milligrams = milligrams - (kilograms*1000000);
+
+                grams = (int)(milligrams/1000);
+
+                milligrams = milligrams - (grams*1000);
+
+                
+
+                in.close();
+
+                
+
+                System.out.println("Your weight is equivalent to: " + kilograms + " kilograms, " + grams + " grams, and " + milligrams + " milligrams.");
+
+        }
+
+}
+//Java program to illustrate the 
+// concept of inheritance 
+
+// derived class 
+class MountainBike extends Bicycle 
+{ 
+        
+        // the MountainBike subclass adds one more field 
+        public int seatHeight; 
+
+        // the MountainBike subclass has one constructor 
+        public MountainBike(int gear,int speed, 
+                                                int startHeight) 
+        { 
+                // invoking base-class(Bicycle) constructor 
+                super(gear, speed); 
+                seatHeight = startHeight; 
+        } 
+                
+        // the MountainBike subclass adds one more method 
+        public void setHeight(int newValue) 
+        { 
+                seatHeight = newValue; 
+        } 
+        
+        // overriding toString() method 
+        // of Bicycle to print more info 
+        @Override
+        public String toString() 
+        { 
+                return (super.toString()+ 
+                                "\nseat height is "+seatHeight); 
+        } 
+        
+} 
+
+// driver class 
+public class Inherit 
+{ 
+        public static void main(String args[]) 
+        { 
+                
+                MountainBike mb = new MountainBike(3, 100, 25); 
+                System.out.println(mb.toString()); 
+                        
+        } 
+} 
+
+
+
+
+import java.util.*;
+public class LoopArrayListDemo {
+   public static void main(String[] args) {
+
+      ArrayList<Integer> arrlist = new ArrayList<Integer>();
+      arrlist.add(14);
+      arrlist.add(7);
+      arrlist.add(39);
+      arrlist.add(40);
+
+      /* For Loop for iterating ArrayList */
+      System.out.println("For Loop");
+      for (int counter = 0; counter < arrlist.size(); counter++) {                    
+          System.out.println(arrlist.get(counter));             
+      }                 
+
+      /* Advanced For Loop*/            
+      System.out.println("Advanced For Loop");          
+      for (Integer num : arrlist) {                   
+           System.out.println(num);             
+      }
+
+      /* While Loop for iterating ArrayList*/           
+      System.out.println("While Loop");                 
+      int count = 0;            
+      while (arrlist.size() > count) {
+         System.out.println(arrlist.get(count));
+         count++;
+      }
+
+      /*Looping Array List using Iterator*/
+      System.out.println("Iterator");
+      Iterator iter = arrlist.iterator();
+      while (iter.hasNext()) {
+         System.out.println(iter.next());
+      }
+   }
+}
+public class Main {
+
+
+    public static void main(String[] args) {
+        
+        int i = -5;
+        String msg = "";
+        //
+        // This code compares a number to a value and returns the number (as a string) if it is greater than the value
+        // If the number is not greater than the value a blank stringis returned
+        //
+        int numSubs = (int)(Math.random() * 3);
+        msg = ( i > 0 ) ? Integer.toString(i) : "";
+        System.out.println( msg );
+
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() );
+        System.out.println( Math.random() * 10 );
+        System.out.println( (int)(Math.random() * 10) );
+
+    }
+
+}
+import java.lang.StringBuilder;
+import java.util.Date;
+
+public class MyStringBuilder {
+     private final DLCUtil UTIL = new DLCUtil();
+     private static final DLCConst CONST = new DLCConst();
+
+     private static final String DQ = "\"";
+     private static final String NL = "\n";
+     private static final String CR = "\r";
+     private static final String COSP = ": ";
+     private static final String COMMA = ",";
+     private static final String COMMANL = ",\n";
+     private static final String EMPTY = "";
+
+     private Object preObj;
+
+     StringBuilder sb;
+
+     MyStringBuilder () {
+          sb = new StringBuilder();
+     }
+     public MyStringBuilder print(String sz) {
+          this.sb.append(sz);
+          return(this);
+     }
+     public void output(MyPrintWriter out) {
+          out.println(this.toString());
+     }
+
+
+     private void put(String sz) { 
+          this.sb.append(sz); 
+          this.sb.append(NL); 
+     }
+     private void put(String sz1,String sz2) { 
+          this.sb.append(sz1); this.sb.append(NL); 
+          this.sb.append(sz2); this.sb.append(NL); 
+     }
+     private void put(String sz1,String sz2,String sz3) { 
+          this.sb.append(sz1); this.sb.append(NL); 
+          this.sb.append(sz2); this.sb.append(NL); 
+          this.sb.append(sz3); this.sb.append(NL); 
+     }
+
+     public MyStringBuilder printJsonObjectln(String sz) {
+          put(CONST.szJSON_OBJECT_OPEN);
+          put(sz);
+          put(CONST.szJSON_COLS_OPEN);
+          return(this);
+     }
+     public MyStringBuilder println(String sz) {
+          this.sb.append(sz);
+          this.sb.append(NL); 
+          return(this);
+     }
+     public MyStringBuilder print(String... args) {
+          for (int i=0;i<(args.length);i++) this.sb.append(args[i]);
+          return(this);
+     }
+     public MyStringBuilder println(String... args) {
+          for (int i=0;i<(args.length);i++) {
+               this.sb.append(args[i]);
+               this.sb.append(NL); 
+          }
+          return(this);
+     }
+     public MyStringBuilder insert(int n, String sz) {
+          this.sb.insert(n,sz);
+          return(this);
+     }
+     public MyStringBuilder insertln(int n, String sz) {
+          this.sb.insert(n,sz + NL);
+          return(this);
+     }
+     public MyStringBuilder prepend(String sz) {
+          this.sb.insert(0,sz);
+          return(this);
+     }
+     public MyStringBuilder prependln(String sz) {
+          this.sb.insert(0,sz + NL);
+          return(this);
+     }
+     public MyStringBuilder append(String sz) {
+          this.sb.append(sz);
+          return(this);
+     }
+     public MyStringBuilder append(String... args) {
+          for (int i=0;i<(args.length);i++) this.sb.append(args[i]);
+          return(this);
+     }
+     public MyStringBuilder JSON_NameValue(String... args) {
+          for (int i=0;i<(args.length);i=i+2) {
+               this.sb.append("\"").append(UTIL.nonull(args[i])).append("\": ").append(CONST.DQ).append(UTIL.nonull(args[i+1])).append("\",").append(NL);
+          }
+          return(this);
+     }
+
+     public MyStringBuilder appendln(String sz) {
+          this.sb.append(sz);
+          this.sb.append(NL);
+          return(this);
+     }
+     public MyStringBuilder appendln(String... args) {
+          for (int i=0;i<(args.length);i++) {
+               this.sb.append(args[i]);
+               this.sb.append(NL); 
+          }
+          return(this);
+     }
+     public MyStringBuilder append(int n) {
+          this.sb.append(Integer.toString(n));
+          return(this);
+     }
+     public MyStringBuilder append(int... args) {
+          for (int i=0;i<(args.length);i++) this.sb.append(Integer.toString(args[i]));
+          return(this);
+     }
+
+
+     public MyStringBuilder jsonNV(String name, int v) {
+          this.sb.append(DQ).append(name).append(DQ).append(COSP).append(DQ).append(Integer.toString(v)).append(DQ).append(NL);
+          return(this);
+     }
+     public MyStringBuilder jsonNVc(String name, int v) {
+          this.sb.append(DQ).append(name).append(DQ).append(COSP).append(DQ).append(Integer.toString(v)).append(DQ).append(COMMANL);
+          return(this);
+     }
+     public MyStringBuilder jsonNV(String name, String v) {
+          this.sb.append(DQ).append(name).append(DQ).append(COSP).append(DQ).append(v).append(DQ).append(NL);
+          return(this);
+     }
+     public MyStringBuilder jsonNVc(String name, String v) {
+          this.sb.append(DQ).append(name).append(DQ).append(COSP).append(DQ).append(v).append(DQ).append(COMMANL);
+          return(this);
+     }
+         
+     public MyStringBuilder appendq(String sz) {
+          this.sb.append(DQ);
+          this.sb.append(sz);
+          this.sb.append(DQ);
+          return(this);
+     }
+     public MyStringBuilder appendqln(String sz) {
+          this.sb.append(DQ);
+          this.sb.append(sz);
+          this.sb.append(DQ);
+          this.sb.append(NL);
+          return(this);
+     }
+     public void clear() {
+          this.sb.setLength(0);
+     }
+     public String toString() {
+          return(this.sb.toString());
+     }
+     public String toStringClean() {
+          //return( this.sb.toString().replaceAll(CK, EMPTY).replaceAll(NL, "") );
+          return( this.sb.toString() );
+     }
+
+
+
+
+
+}
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import org.joda.time.*;
+
+public class MyTimeStamp {
+     // http://www.xyzws.com/javafaq/how-to-use-simpledateformat-class-formating-parsing-date-and-time/142
+     final DLCUtil dlcutil = new DLCUtil(true);
+     String ts;
+     long time_0 = 0L;
+     String desc_0 = "";
+     MyStringBuilder sbBuffer = new MyStringBuilder();
+
+     //private static final String szFormatString = "MMddyyHH:mmZ";
+     private static final String szFormatString = "MM-dd-yy";
+
+     MyTimeStamp () {
+          Date now = new java.util.Date();
+          SimpleDateFormat format = new SimpleDateFormat(szFormatString);
+          this.ts = format.format(now);
+     }
+     MyTimeStamp (String f) {
+          Date now = new java.util.Date();
+          SimpleDateFormat format = new SimpleDateFormat(f);
+          this.ts = format.format(now);
+     }
+     MyTimeStamp (Date then) {
+          if (then == null ) {
+               this.ts = null;
+          }
+          else {
+               SimpleDateFormat format = new SimpleDateFormat(szFormatString);
+               this.ts = format.format(then);
+          }
+     }
+     MyTimeStamp (Date then, String f) {
+          if (then == null ) {
+               this.ts = null;
+          }
+          else {
+               SimpleDateFormat format = new SimpleDateFormat(f);
+               this.ts = format.format(then);
+          }
+     }
+     String getTimeStamp() {
+          return(this.ts);
+     }
+     void logtime() {
+          String f = "MM-dd-yy HH:mm:s.S Z";
+          Date now = new java.util.Date();
+          SimpleDateFormat format = new SimpleDateFormat(f);
+          dlcutil.sysOut(format.format(now));
+     }
+     String markTime(String sz) { 
+          this.desc_0 = sz;
+          return(markTime());
+     }
+     void markTimeClearBuffer() { 
+          sbBuffer.clear();
+     }
+     String markTimeBuffer() { 
+          return(sbBuffer.toString());
+     }
+     String markTime() { 
+          long ret = 0L;
+          String sz = "";
+          if ( this.time_0 == 0L ) {
+               this.time_0 = (new java.util.Date()).getTime();
+               sz = this.desc_0 + ": " + Long.toString(ret);
+          }
+          else {
+               ret = (new java.util.Date()).getTime() - this.time_0;
+               sz = dlcutil.padding(this.desc_0) + ": " + Long.toString(ret);
+               this.time_0 = 0L;
+          } 
+          sbBuffer.append(sz + " ");
+          return(sz);
+     }
+     void logtime(String sz) {
+          String f = "MM-dd-yy HH:mm:s.S Z";
+          Date now = new java.util.Date();
+          SimpleDateFormat format = new SimpleDateFormat(f);
+          dlcutil.sysOut(sz + ":" + format.format(now));
+     }
+   
+     String nowuid() {
+          String f = "'uid-'yyyymmdd't'hhmmss'.0z'";
+          Date now = new java.util.Date();
+          SimpleDateFormat format = new SimpleDateFormat(f);
+          return(format.format(now));
+     }
+     String nowzulu() {
+          String f = "yyyy-mm-dd't'hh:mm:ss'.0z'";
+          Date now = new java.util.Date();
+          SimpleDateFormat format = new SimpleDateFormat(f);
+          return(format.format(now));
+     }
+     String now() {
+          String f = "MM-dd-yy HH:mm:s.S Z";
+          Date now = new java.util.Date();
+          SimpleDateFormat format = new SimpleDateFormat(f);
+          return(format.format(now));
+     }
+     String value() {
+          return(this.ts);
+     }
+}
+
+public class New {
+
+    public static Do action = new Do();
+    
+    
+    public static void nope() {
+            System.out.println( "New..." );
+    }
+
+
+
+}
+public class POOL {
+
+    void POOL() {
+    }
+    void POOL(String sz) {
+    }
+    void POOL(int i) {
+    }
+
+    public static void main(String[] args) {
+        System.out.println( "Hello World!" );
+        int[] ii = new int[1000];
+    }
+
+}
+public class Pop {
+
+    void Pop() {
+    }
+    void Pop(String sz) {
+    }
+    void Pop(int i) {
+    }
+
+    public static void main(String[] args) {
+        System.out.println( "Hello World!" );
+        int[] ii = new int[1000];
+    }
+
+}
+import java.math.BigInteger;
+import java.util.Random;
+
+public class PrimeEx {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		printTest(10, 4);
+		printTest(2, 2);
+		printTest(54161329, 4);
+		printTest(1882341361, 2);
+		printTest(36, 9);
+		int ii=10000000;
+		for (int i = 2; i < ii; i++) {
+                     int j=0;
+                     j=((i*i)-1) % 24;
+                     if (j==0)
+		     System.out.println(i + " " + isPrime(i) + " " + j + " " + numFactors(i) );
+                }
+		System.out.println(isPrime(54161329) + " expect false");
+		System.out.println(isPrime(1882341361) + " expect true");
+		System.out.println(isPrime(2) + " expect true");
+		int numPrimes = 0;
+		Stopwatch s = new Stopwatch();
+		s.start();
+		for(int i = 2; i < 10000000; i++) {
+			if(isPrime(i)) {
+				numPrimes++;
+			}
+		}
+		s.stop();
+		System.out.println(numPrimes + " " + s);
+		s.start();
+		boolean[] primes = getPrimes(10000000);
+		int np = 0;
+		for(boolean b : primes)
+			if(b)
+				np++;
+		s.stop();
+		System.out.println(np + " " + s);
+
+		System.out.println(new BigInteger(1024, 10, new Random()));
+	}
+
+	public static boolean[] getPrimes(int max) {
+		boolean[] result = new boolean[max + 1];
+		for(int i = 2; i < result.length; i++)
+			result[i] = true;
+		final double LIMIT = Math.sqrt(max);
+		for(int i = 2; i <= LIMIT; i++) {
+			if(result[i]) {
+				// cross out all multiples;
+				int index = 2 * i;
+				while(index < result.length){
+					result[index] = false;
+					 index += i;
+				}
+			}
+		}
+		return result;
+	}
+
+
+	public static void printTest(int num, int expectedFactors) {
+		Stopwatch st = new Stopwatch();
+		st.start();
+		int actualFactors = numFactors(num);
+		st.stop();
+		System.out.println("Testing " + num + " expect " + expectedFactors + ", " +
+				"actual " + actualFactors);
+		if(actualFactors == expectedFactors)
+			System.out.println("PASSED");
+		else
+			System.out.println("FAILED");
+		System.out.println(st.time());
+	}
+
+	// pre: num >= 2
+	public static boolean isPrime(int num) {
+		assert num >= 2 : "failed precondition. num must be >= 2. num: " + num;
+		final double LIMIT = Math.sqrt(num);
+		boolean isPrime = (num == 2) ? true : num % 2 != 0;
+		int div = 3;
+		while(div <= LIMIT && isPrime) {
+			isPrime = num % div != 0;
+			div += 2;
+		}
+		return isPrime;
+	}
+
+	// pre: num >= 2
+	public static int numFactors(int num) {
+		assert num >= 2 : "failed precondition. num must be >= 2. num: " + num;
+		int result = 0;
+		final double SQRT = Math.sqrt(num);
+		for(int i = 1; i < SQRT; i++) {
+			if(num % i == 0) {
+				result += 2;
+			}
+		}
+		if(num % SQRT == 0)
+			result++;
+		return result;
+	}
+
+}
+import java.util.Scanner;
+
+class PrimeNumbers
+{
+        public static void main(String arg[])   {
+             System.out.println("Enter a number ");
+             Scanner sc=new Scanner(System.in);
+             int n=sc.nextInt();
+             primeCal(n);
+        }
+   static void primeCal(int num) {
+        int count=0;
+        for(int i=1;i<=num;i++) {
+           if(num%i==0) {
+                count++;                
+           }
+        }
+        if(count==2)
+             System.out.println("prime number ");
+        else
+             System.out.println("Not a prime number ");        
+   } 
+}
+// Primitive type    Wrapper class (Object)
+// -------------     ----------------------
+// boolean           Boolean
+// byte              Byte
+// char              Character
+// float             Float
+// int               Integer
+// long              Long
+// short             Short
+// double            Double
+//
+//
+// Type    Size (bits)     Minimum    Maximum            Example
+// byte    8               -2E7       2E7–1              byte b = 100;
+// short   16              -2E15      2E15–1             short s = 30,000;
+// int     32              -2E31      2E31–1             int i = 100,000_000;
+// long    64              -2E63      2E63–1             long l = 100,000,000,000,000;
+// float   32              -2E-149    (2-2E-23)·2E127    float f = 1.456f;
+// double  64              -2-1074    (2-2E-52)·2E1023   double f = 1.456789012345678;
+// char    16              0          2E16– 1            char c = ‘c’;
+// boolean 1               –          –                  boolean b = true;
+public class Primitives {
+   
+    public static void main(String[] args) {
+
+        boolean pBool  = true;
+        Boolean oBool  = new Boolean(true);
+
+        int     pI     = 1;
+        Integer oI     = new Integer(1);
+
+        byte    pB     = 4; 
+        Byte    oB     = new Byte((byte) 4);
+   }
+
+}
+public class Prim {
+// Primitive type    Wrapper class (Object)
+// -------------     ----------------------
+// boolean           Boolean
+// byte              Byte
+// char              Character
+// float             Float
+// int               Integer
+// long              Long
+// short             Short
+// double            Double
+//
+// Type    Size (bits)     Minimum    Maximum            Example
+// byte    8               -2E7       2E7–1              byte b = 100;
+// short   16              -2E15      2E15–1             short s = 30,000;
+// int     32              -2E31      2E31–1             int i = 100,000_000;
+// long    64              -2E63      2E63–1             long l = 100,000,000,000,000;
+// float   32              -2E-149    (2-2E-23)·2E127    float f = 1.456f;
+// double  64              -2-1074    (2-2E-52)·2E1023   double f = 1.456789012345678;
+// char    16              0          2E16– 1            char c = ‘c’;
+// boolean 1               –          –                  boolean b = true;
+
+     public static void main(String[] args) {
+          StringBuilder sb = new StringBuilder();
+          String sz   = "";
+          int       x = 1;
+          Integer   o = new Integer(x);
+          sz = Integer.toString(10);
+          sb.append(sz);
+     }
+}
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+
+class PrintWriterDemo
+{
+   public static void main( String[] args )
+   {    
+      try{
+          File file =new File("C://myfile.txt");
+          if(!file.exists()){
+                file.createNewFile();
+          }
+          FileWriter fw = new FileWriter(file,true);
+          BufferedWriter bw = new BufferedWriter(fw);
+          PrintWriter pw = new PrintWriter(bw);
+          //This will add a new line to the file content
+          pw.println("");
+          /* Below three statements would add three 
+           * mentioned Strings to the file in new lines.
+           */
+          pw.println("This is first line");
+          pw.println("This is the second line");
+          pw.println("This is third line");
+          pw.close();
+
+          System.out.println("Data successfully appended at the end of file");
+
+       }catch(IOException ioe){
+           System.out.println("Exception occurred:");
+           ioe.printStackTrace();
+      }
+   }
+}
+
+import java.util.Random;
+public class Race {
+    private int Racers = 0;
+    private Bicycle[] Bikes = new Bicycle[500];
+
+    private static Random ourRandNumGen = new Random();
+    Race() {
+        this.Racers = 2;
+        for ( int i=0; i<this.Racers; i++ ) this.createBike(i);
+    }
+    Race(int r) {
+        this.Racers = r;
+        for ( int i=0; i<this.Racers; i++ ) this.createBike(i);
+        System.out.println( "This race has "+ this.Racers+" bikes" );
+    }
+    private void createBike(int i) {
+        this.Bikes[i]= new Bicycle();
+    }
+
+    public int advance()
+    {   
+        return ourRandNumGen.nextInt(2) ;
+    }
+
+    public void runRace() {
+        int whichBike = 0;
+        int n = 0;
+        String sz="";
+        for ( int j=0; j<240; j++ ) {
+             for ( int i=0; i<this.Racers-1; i++ ) {
+                 whichBike = ourRandNumGen.nextInt(this.Racers) + 0;
+                 n = advance();
+                 this.Bikes[whichBike].move(n);
+        //         System.out.println( (whichBike+1)+ " moved ("+n+") and is now at "+this.Bikes[whichBike].getPosition() );
+             }
+
+             for ( int i=0; i<this.Racers-1; i++ ) {
+                 sz="--";
+                 if ( this.Bikes[i].getPosition() > i ) sz = "XX";
+                 System.out.print( sz + "  ");
+             }
+             System.out.print( "    " );
+             for ( int i=0; i<this.Racers-1; i++ ) {
+                 System.out.print( this.Bikes[i].getPosition() + ", " );
+             }
+             System.out.println( "" );
+
+        }
+    }
+
+    public static void main(String[] args) {
+        Race r = new Race(12);
+        r.runRace();
+        System.out.println( "Hello World!" );
+    }
+
+}
+import java.io.*;
+
+public class ReadFileDemo {
+   public static void main(String[] args) {         
+      //Specify the path of the file here
+      File file = new File("C://myfile.txt");
+      BufferedInputStream bis = null;
+      FileInputStream  fis= null;
+
+      try
+      {
+          //FileInputStream to read the file
+          fis = new FileInputStream(file);
+
+          /*Passed the FileInputStream to BufferedInputStream
+           *For Fast read using the buffer array.*/
+          bis = new BufferedInputStream(fis);
+
+          /*available() method of BufferedInputStream
+           * returns 0 when there are no more bytes
+           * present in the file to be read*/
+          while( bis.available() > 0 ){                 
+              System.out.print((char)bis.read());
+          }
+
+       }catch(FileNotFoundException fnfe)
+        {
+            System.out.println("The specified file not found" + fnfe);
+        }
+        catch(IOException ioe)
+        {
+            System.out.println("I/O Exception: " + ioe); 
+        }
+        finally
+        {
+            try{
+               if(bis != null && fis!=null)
+               {
+                  fis.close();
+                  bis.close();
+               }      
+             }catch(IOException ioe)
+              {
+                  System.out.println("Error in InputStream close(): " + ioe);
+              }         
+        }
+   }    
+}
+
+
+import java.io.File;
+public class RenameFileDemo
+{
+    public static void main(String[] args)
+    {   
+        //Old File
+        File oldfile =new File("C:\\myfile.txt");
+        //New File
+        File newfile =new File("C:\\mynewfile.txt");
+        /*renameTo() return boolean value
+         * It return true if rename operation is
+         * successful
+         */
+        boolean flag = oldfile.renameTo(newfile);
+        if(flag){
+           System.out.println("File renamed successfully");
+        }else{
+           System.out.println("Rename operation failed");
+         }
+    }
+}
+import java.util.Scanner;
+
+public class ScanInt
+{
+    private int n;
+    public void ScanInt() {
+    }
+
+    public int get() {
+        System.out.println("Enter a number ");
+        Scanner sc=new Scanner(System.in);
+        this.n=sc.nextInt();
+        return this.n;
+    }
+}
+import java.util.Scanner;
+
+public class Scan
+{
+    private int n;
+    private String sz;
+    private String szPrompt = "";
+    public void Scan() {
+    }
+
+    public void setPrompt(String sz) {
+        this.szPrompt = sz;
+    }
+    public int getInt() {
+        System.out.print( szPrompt.equals("") ? "Enter a number: " : this.szPrompt);
+        Scanner sc=new Scanner(System.in);
+        this.n=sc.nextInt();
+        System.out.println("");
+        return this.n;
+    }
+    public String getString() {
+        System.out.print( szPrompt.equals("") ? "Enter a string: " : this.szPrompt);
+        Scanner sc=new Scanner(System.in);
+        this.sz=sc.nextLine();
+        System.out.println("");
+        return this.sz;
+    }
+}
+import java.util.Scanner;    // Needed to use the Scanner
+/**
+ * Test input scanner class
+ */
+public class ScannerTestClassOnly {
+   public void runTest() {
+      // Declare variables
+      int num1;
+      double num2;
+      String str;
+      // Construct a Scanner named "in" for scanning System.in (keyboard)
+      Scanner in = new Scanner(System.in);
+
+      // Read inputs from keyboard 
+      System.out.print("Enter an integer: ");  // Show prompting message
+      num1 = in.nextInt();         // Use nextInt() to read an int
+      System.out.print("Enter a floating point: ");  // Show prompting message
+      num2 = in.nextDouble();      // Use nextDouble() to read a double
+      System.out.print("Enter a string: ");  // Show prompting message
+      str  = in.next();            // Use next() to read a String token, up to white space
+
+      // Formatted output via printf()
+      System.out.printf("%s, Sum of %d & %.2f is %.2f%n", str, num1, num2, num1+num2);
+ 
+      // close the input
+      in.close();
+   }
+}
+import java.util.Scanner;    // Needed to use the Scanner
+/**
+ * Test input scanner
+ */
+public class ScannerTest {
+   public static void main(String[] args) {
+      // Declare variables
+      int num1;
+      double num2;
+      String str;
+      // Construct a Scanner named "in" for scanning System.in (keyboard)
+      Scanner in = new Scanner(System.in);
+
+      // Read inputs from keyboard 
+      System.out.print("Enter an integer: ");  // Show prompting message
+      num1 = in.nextInt();         // Use nextInt() to read an int
+      System.out.print("Enter a floating point: ");  // Show prompting message
+      num2 = in.nextDouble();      // Use nextDouble() to read a double
+      System.out.print("Enter a string: ");  // Show prompting message
+      str  = in.next();            // Use next() to read a String token, up to white space
+
+      // Formatted output via printf()
+      System.out.printf("%s, Sum of %d & %.2f is %.2f%n", str, num1, num2, num1+num2);
+ 
+      // close the input
+      in.close();
+   }
+}
+/**
+ A class to measure time elapsed.
+*/
+
+public class Stopwatch
+{
+    private long startTime;
+    private long stopTime;
+
+    public static final double NANOS_PER_SEC = 1000000000.0;
+
+	/**
+	 start the stop watch.
+	*/
+	public void start(){
+		startTime = System.nanoTime();
+	}
+
+	/**
+	 stop the stop watch.
+	*/
+	public void stop()
+	{	stopTime = System.nanoTime();	}
+
+	/**
+	elapsed time in seconds.
+	@return the time recorded on the stopwatch in seconds
+	*/
+	public double time()
+	{	return (stopTime - startTime) / NANOS_PER_SEC;	}
+
+	public String toString(){
+	    return "elapsed time: " + time() + " seconds.";
+	}
+
+	/**
+	elapsed time in nanoseconds.
+	@return the time recorded on the stopwatch in nanoseconds
+	*/
+	public long timeInNanoseconds()
+	{	return (stopTime - startTime);	}
+}
+
+
+public class Test {
+
+    public static void main(String[] args) {
+        Test.PrintIt(9);
+    }
+    static void PrintIt(int cost) {
+        System.out.println( cost );
+        for ( int i=0;i<cost; i++)
+             System.out.println( i + " Josie" );
+    }
+
+}
+/*
+ * A Test Driver for the Time class
+ */
+public class TestTime {
+   public static void main(String[] args) {
+      // Test Constructors and toString()
+      Time t1 = new Time(1, 2, 3);
+      System.out.println(t1);  // toString()
+      Time t2 = new Time();    // The default constructor
+      System.out.println(t2);
+
+      // Test Setters and Getters
+      t1.setHour(4);
+      t1.setMinute(5);
+      t1.setSecond(6);
+      System.out.println(t1);  // run toString() to inspect the modified instance
+      System.out.println("Hour is: " + t1.getHour());
+      System.out.println("Minute is: " + t1.getMinute());
+      System.out.println("Second is: " + t1.getSecond());
+
+      // Test setTime()
+      t1.setTime(58, 59, 23);
+      System.out.println(t1);  // toString()
+
+      // Test nextSecond() and chaining
+      System.out.println(t1.nextSecond()); // Return an instance of Time. Invoke Time's toString()
+      System.out.println(t1.nextSecond().nextSecond().nextSecond());
+   }
+}
+/**
+ * The Time class models a time instance with second, minute and hour.
+ * <p>
+ * This class performs input validations.
+ * 
+ * @author          <CS113-Section106-Student-Name>
+ *                  <CS113-Section106-Student-ID>
+ *
+ *                  CS113 Spring 2019
+ *
+ * @see             None
+ */ 
+public class Time {
+   // The private instance variables - with input validations.
+   private int second;  // [0, 59]
+   private int minute;  // [0, 59]
+   private int hour;    // [0, 23]
+
+// Constructors
+/**
+ * Default constructor, no arguments, sets all time sub-components to zero
+ * <p>
+ * 
+ * @return          <code>none - this is a constructor</code>
+ */     
+public Time() {  // The default constructor
+      this.second = 0;
+      this.minute = 0;
+      this.hour = 0;
+}
+/**
+ * This constructor takes specific parameters for each time sub-component
+ * <p>
+ * 
+ * @param second    number of seconds
+ * @param minute    number of minutes
+ * @param hours     number of hours
+ * @return          <code>none - this is a constructor</code>
+ */     
+public Time(int second, int minute, int hour) {
+      // Invoke setters to do input valiation
+      this.setTime(second, minute, hour);
+}
+
+
+// The public getters
+public int getSecond() {
+      return this.second;
+}
+public int getMinute() {
+      return this.minute;
+}
+public int getHour() {
+      return this.hour;
+}
+/**
+ * Sets seconds value
+ * <p>
+ * Returns void
+ * 
+ * @param second    number of seconds
+ * @return          <code>void</code>
+ */     
+ public void setSecond(int second) {
+      if (second >=0 && second <= 59) {
+         this.second = second;
+      } else {
+         this.second = 0;  // Set to 0 and print error message
+         System.out.println("error: invalid second");
+      }
+}
+
+/**
+ * Sets minutes value
+ * <p>
+ * Returns void
+ * 
+ * @param minutes   number of minutes
+ * @return          <code>void</code>
+ */     
+public void setMinute(int minute) {
+      if (minute >=0 && minute <= 59) {
+         this.minute = minute;
+      } else {
+         this.minute = 0;
+         System.out.println("error: invalid minute");
+      }
+}
+
+/**
+ * Sets hours value
+ * <p>
+ * Returns void
+ * 
+ * @param hours   number of minutes
+ * @return          <code>void</code>
+ */     
+public void setHour(int hour) {
+      if (hour >=0 && hour <= 23) {
+         this.hour = hour;
+      } else {
+         this.hour = 0;
+         System.out.println("error: invalid hour");
+      }
+   }
+
+/**
+ * Sets seconds, minutes and hours values 
+ * <p>
+ * Returns void
+ * 
+ * @param second    number of seconds
+ * @param minute    number of minutes
+ * @param hours     number of hours
+ * @return          <code>void</code>
+ */     
+public void setTime(int second, int minute, int hour) {
+      // Invoke setters to do input validation
+      this.setSecond(second);
+      this.setMinute(minute);
+      this.setHour(hour);
+}
+
+
+/**
+ * Return "hh:mm:ss" with leading zeros.
+ * Sets seconds, minutes and hours values 
+ * <p>
+ * Returns String
+ * 
+ * @return          <code>formatted representation of a time object</code>
+ */     
+public String toString() {
+        return String.format("%02d:%02d:%02d", hour, minute, second);
+}
+/**
+ * Increment this instance by one second, return this instance
+ * <p>
+ * Returns void
+ * 
+ * @return          <code>Time</code>
+ */     
+public Time nextSecond() {
+      ++second;
+      if (second == 60) {  // We are sure that second <= 60 here!
+         second = 0;
+         ++minute;
+         if (minute == 60) {
+            minute = 0;
+            ++hour;
+            if (hour == 24) {
+               hour = 0;
+            }
+         }
+      }
+      return this;   // Return this instance, to support chaining
+}
+
+}
+public class Zed {
+
+    void Zed() {
+    }
+    void Zed(String sz) {
+    }
+    void Zed(int i) {
+    }
+
+    public static void main(String[] args) {
+        System.out.println( "Hello World!" );
+        int[] ii = new int[1000];
+    }
+
+}

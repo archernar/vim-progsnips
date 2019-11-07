@@ -1,0 +1,9 @@
+     private String NNAME = "";
+
+     public String getNNAME() {
+         return this.NNAME;
+     }
+     public String setNNAME(String szIn) {
+         this.NNAME = szIn;
+         return this.NNAME;
+     }

@@ -1,0 +1,9 @@
+     private char NNAME = "";
+
+     public char getNNAME() {
+         return this.NNAME;
+     }
+     public char setNNAME(char NNAME) {
+         this.NNAME = NNAME;
+         return this.NNAME;
+     }

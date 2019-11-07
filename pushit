@@ -57,5 +57,30 @@ adder plugin/test.txt
 adder plugin/KSH.txt
 adder pushit
 adder README.md
+
+adder plugin/Appl.txt
+adder plugin/ex11.txt
+adder plugin/Gawk.txt
+adder plugin/Prim.txt
+adder plugin/QuickClass.txt
+adder plugin/Sb.txt
+adder plugin/Scanner.txt
+adder plugin/songs.txt
+adder plugin/StaticVoidMain.txt
+adder plugin/Switch.txt
+adder plugin/SysOut.txt
+adder plugin/Template.txt
+adder plugin/Try.txt
+adder plugin/Uni.txt
+adder plugin/VarChar.txt
+adder plugin/VarDouble.txt
+adder plugin/VarFloat.txt
+adder plugin/Varint.txt
+adder plugin/VarString.txt
+adder plugin/Var.txt
+
+
+
+
 updater
 
