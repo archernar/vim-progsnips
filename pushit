@@ -1,0 +1,61 @@
+#!/usr/bin/ksh
+Tmp="/tmp/$$"
+TmpDir="/tmp/dir$$"
+trap 'rm -f "$Tmp" >/dev/null 2>&1' 0
+trap "exit 2" 1 2 3 13 15
+rm $Tmp  >/dev/null 2>&1
+
+adder() {
+print "Running adder()"
+cp $1 /home/mestes/.vim/bundle/$REPO/$1
+if [ "$LOCAL" == "" ] ; then
+     IP=192.168.1.1
+     fping -c1 -t300 $IP 2>/dev/null 1>/dev/null
+
+#     if [ $? -eq 0 ] ; then
+      if [[ $? -eq 0 || $FORCE -eq 1 ]] ; then
+          print "  add $1"
+          git add $1
+     else
+          print "  network not available, add not performed"
+     fi
+fi
+print "-"
+}
+updater() {
+print "Running updater()"
+if [ "$LOCAL" == "" ] ; then
+     IP=192.168.1.1
+     fping -c1 -t300 $IP 2>/dev/null 1>/dev/null
+#    if [ $? -eq 0 ] ; then
+     if [[ $? -eq 0 || $FORCE -eq 1 ]] ; then
+          print "  commiting"
+          git commit -m "Update"
+          print "  pushing"
+          git push -u origin master
+     else
+          print "  network not available, commit and push not performed"
+     fi
+fi
+print "-"
+}
+
+# #######################################
+REPO=vim-progsnips
+LOCAL=""
+while getopts "l" arg
+do
+	case $arg in
+            l) LOCAL="yes" ;;
+        esac
+done
+FORCE=1
+ANON=`date`
+print $ANON
+
+adder plugin/test.txt
+adder plugin/KSH.txt
+adder pushit
+adder README.md
+updater
+

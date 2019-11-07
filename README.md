@@ -1,1 +1,1 @@
-# vimstuff
+# vim-progsnips
