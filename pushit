@@ -79,6 +79,31 @@ adder plugin/Varint.txt
 adder plugin/VarString.txt
 adder plugin/Var.txt
 
+adder plugin/ex1.java
+adder plugin/ex2.java
+adder plugin/ex3.java
+adder plugin/ex4.java
+adder plugin/ex5a.java
+adder plugin/ex5b.java
+adder plugin/ex5bnew.java
+adder plugin/ex5c.java
+adder plugin/ex5d.java
+adder plugin/ex6b.java
+adder plugin/ex6.java
+adder plugin/ex8.java
+adder plugin/ex9.java
+adder plugin/ex10.java
+adder plugin/ex11.java
+adder plugin/ex12a.java
+adder plugin/ex12b.java
+adder plugin/FileTest2.java
+adder plugin/FileTest.java
+adder plugin/forexamples.java
+adder plugin/IntCircle.java
+adder plugin/PlayList.java
+adder plugin/PlayListTest.java
+adder plugin/Scores.java
+adder plugin/Song.java
 
 
 
