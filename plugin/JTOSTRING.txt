@@ -1,0 +1,9 @@
+
+    public String toString() {
+        StringBuilder S = new StringBuilder();
+        S.append("Title: " + title + "   ");
+        S.append("Length: " + length + "   ");
+        S.append("Artist: " + artist + "   ");
+        S.append("Genre: " + genre + "\n");
+        return S.toString();
+    }

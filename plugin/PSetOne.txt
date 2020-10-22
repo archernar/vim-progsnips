@@ -1,0 +1,64 @@
+Java program to calculate the prime numbers between 2 and N (N<10000).
+Java program to calculate the prime numbers between M and N (N<10000).
+Java program to check whether two numbers are coprime where M&N are <100.
+Java program to generate random numbers between given ranges.
+Java program to check whether a number is an emrip number or not.
+Java program to check whether a number is an ugly number or not.
+Java program to check whether a number is a Kaprekar number or not.
+Java program to check whether a number is a palindromic number or not.
+Java program to check whether a number is an equidigital number or not.
+Java program to check whether a number is a factorion number or not.
+Java program to check whether a number is an extravagant number or not.
+Java program to check whether a number is a narcissistic number or not.
+Java program to check whether a number is an Osiris number or not.
+Java program to check whether a number is a trimorphic number or not.
+Java program to check whether a number is a sum-product number or not.
+Java program to check whether a number is an Evil number or not.
+Java program to check whether a number is an Harshad number or not.
+Java program to check whether a number is an Pronic number or not.
+Java program to check whether input number is EVEN or ODD.
+Java program to print all Armstrong numbers between given range.
+Java program to produce the first 20 Smith numbers.
+Java program to produce a set of Vampire numbers.
+Java program to check number is positive, negative or zero.
+Java program to print a 16 row Floyd’s triangle.
+Java program to generate permutation of the digits in a number.
+Java program to find the squares of 1 to N.
+Java program to find the cubes of 1 to N.
+Java program to find the factorials of 1 to N.
+Java program to find the Longest Sequence of 1’s in a 64 bit binary number.
+Java program to find sum and average of eight positive integers.
+Java program to that swaps two numbers
+Java program to print uppercase and lowercase alphabets.
+Java program to print Pascal's triangle.
+Java program to count total positives, negatives and zeros from an array.
+Java program to find sum of all digits.
+Java program to find mean of a digits in a given integer.
+Java program to build a calculator.
+Java program to calculate compound interest.
+Java program to read strings with different methods.
+Java program to validate input as integer value only.
+Java program to check whether a given character is in an alphabet.
+Java program to print the first 32 triangle numbers.
+Java program to convert string to Boolean.
+Java program to convert string to Double.
+Java program to convert string to int.
+Java program to convert double to Double.
+Java program to convert int to Double.
+Java program to count factors of a given number.
+Java program to find the higest of five numbers.
+Java program to find the lowest of five numbers.
+Java program to calculate area of Hexagon.
+Java program to find perimeter of a rectangle.
+Java program to find occurrences of palindrome words in a string.
+Java program to swap first and last character of each word in a string.
+Java program to divide two numbers and catch the exception, if divisor is 0.
+Java program to check whether given IMEI Number is valid using the Luhn algorithm.
+Java program to find smallest element in an array.
+Java program to find larget element in an array.
+Java program to convert an integer of seconds to hours, minutes and second.
+Java program to convert an float represetation of hours to hours, minutes and second.
+Java program to convert an float represetation of minutes to hours, minutes and second.
+Java program to find largest number among four numbers.
+Java program to find largest number among sixteen numbers.
+Java program to check an integer year is Leap year or not.

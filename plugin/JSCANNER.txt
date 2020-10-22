@@ -1,0 +1,9 @@
+import java.util.Scanner;
+    Scanner in = new Scanner(System.in);
+    System.out.print("Enter an integer: ");
+    n = in.nextInt();
+    System.out.print("Enter a floating point: ");
+    n = in.nextDouble();
+    System.out.print("Enter a string: ");
+    s = in.next();
+    in.close();

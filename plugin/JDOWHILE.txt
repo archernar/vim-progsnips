@@ -1,0 +1,6 @@
+
+    do {
+        if (x > y) {
+            count++;
+        }
+    } while (i > j);

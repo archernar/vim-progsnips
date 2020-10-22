@@ -1,0 +1,21 @@
+    public void sysOut(String... args) { 
+        StringBuilder sb = new StringBuilder();
+        String ts = getTimeStamp(true);
+        String c=",";
+        String className = "";
+        if (!(this.obj == null)) className = (this.obj).getClass().getName();
+        String fullClassName = Thread.currentThread().getStackTrace()[3].getClassName();
+        String className     = fullClassName.substring(fullClassName.lastIndexOf(".") + 1);
+        String methodName    = Thread.currentThread().getStackTrace()[3].getMethodName();
+        int lineNumber       = Thread.currentThread().getStackTrace()[3].getLineNumber();
+        String traceStamp    = Thread.currentThread().getStackTrace()[3].toString();
+
+        for (int i=0;i<(args.length);i++) {
+            // String sz = "("+ (new Integer(args[i].length())).toString() + ")"; 
+            // System.out.println(ts +c+ sz +c+ this.prefix +c+ className +c+ args[i]);
+            // System.out.println(ts +c+ this.prefix +c+ traceStamp +c+ className +c+ methodName +c+ lineNumber +c+ args[i]);
+            // System.out.println(ts +c+ this.prefix +c+ traceStamp +c+ args[i]);
+            System.out.println(sb.append(ts).append(c).append(this.prefix).append(c).append(traceStamp).append(c).append(args[i]).toString() ); 
+            sb.setLength(0);
+        }
+    }

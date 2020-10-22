@@ -1,0 +1,13 @@
+
+import java.io.File;
+    try {
+         File file = new File("C:\\myfile.txt");
+         if (file.delete()) {
+            System.out.println(file.getName() + " is deleted!");
+         } else {
+            System.out.println("Delete failed: File didn't delete");
+         }
+    } catch (Exception e) {
+         System.out.println("Exception occurred");
+         e.printStackTrace();
+    }

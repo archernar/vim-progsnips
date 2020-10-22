@@ -1,0 +1,15 @@
+import java.util.Scanner;
+import java.io.*;
+
+    String url;
+    Scanner fileScan, urlScan;
+    fileScan = new Scanner(new File("urls.inp"));
+    while (fileScan.hasNext()) {
+        url = fileScan.nextLine();
+        urlScan = new Scanner(url);
+        urlScan.useDelimiter("/");
+        while (urlScan.hasNext()) {
+            System.out.println("   " + urlScan.next());
+        }
+        System.out.println();
+      }
