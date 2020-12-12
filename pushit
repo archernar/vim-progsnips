@@ -5,107 +5,68 @@ trap 'rm -f "$Tmp" >/dev/null 2>&1' 0
 trap "exit 2" 1 2 3 13 15
 rm $Tmp  >/dev/null 2>&1
 
-adder() {
-print "Running adder()"
-cp $1 /home/mestes/.vim/bundle/$REPO/$1
-if [ "$LOCAL" == "" ] ; then
-     IP=192.168.1.1
-     fping -c1 -t300 $IP 2>/dev/null 1>/dev/null
-
-#     if [ $? -eq 0 ] ; then
-      if [[ $? -eq 0 || $FORCE -eq 1 ]] ; then
-          print "  add $1"
-          git add $1
-     else
-          print "  network not available, add not performed"
-     fi
-fi
-print "-"
-}
-updater() {
-print "Running updater()"
-if [ "$LOCAL" == "" ] ; then
-     IP=192.168.1.1
-     fping -c1 -t300 $IP 2>/dev/null 1>/dev/null
-#    if [ $? -eq 0 ] ; then
-     if [[ $? -eq 0 || $FORCE -eq 1 ]] ; then
-          print "  commiting"
-          git commit -m "Update"
-          print "  pushing"
-          git push -u origin master
-     else
-          print "  network not available, commit and push not performed"
-     fi
-fi
-print "-"
-}
-
-# #######################################
 REPO=vim-progsnips
-LOCAL=""
-while getopts "l" arg
-do
-	case $arg in
-            l) LOCAL="yes" ;;
-        esac
-done
-FORCE=1
 ANON=`date`
 print $ANON
 
-adder plugin/test.txt
-adder plugin/KSH.txt
-adder pushit
-adder README.md
+git add plugin/test.txt
+git add plugin/KSH.txt
+git add pushit
+git add README.md
 
-adder plugin/Appl.txt
-adder plugin/ex11.txt
-adder plugin/Gawk.txt
-adder plugin/Prim.txt
-adder plugin/QuickClass.txt
-adder plugin/Sb.txt
-adder plugin/Scanner.txt
-adder plugin/songs.txt
-adder plugin/StaticVoidMain.txt
-adder plugin/Switch.txt
-adder plugin/SysOut.txt
-adder plugin/Template.txt
-adder plugin/Try.txt
-adder plugin/Uni.txt
-adder plugin/VarChar.txt
-adder plugin/VarDouble.txt
-adder plugin/VarFloat.txt
-adder plugin/Varint.txt
-adder plugin/VarString.txt
-adder plugin/Var.txt
+git add plugin/Appl.txt
+git add plugin/ex11.txt
+git add plugin/Gawk.txt
+git add plugin/Prim.txt
+git add plugin/QuickClass.txt
+git add plugin/Sb.txt
+git add plugin/Scanner.txt
+git add plugin/songs.txt
+git add plugin/StaticVoidMain.txt
+git add plugin/Switch.txt
+git add plugin/SysOut.txt
+git add plugin/Template.txt
+git add plugin/Try.txt
+git add plugin/Uni.txt
+git add plugin/VarChar.txt
+git add plugin/VarDouble.txt
+git add plugin/VarFloat.txt
+git add plugin/Varint.txt
+git add plugin/VarString.txt
+git add plugin/Var.txt
 
-adder plugin/ex1.java
-adder plugin/ex2.java
-adder plugin/ex3.java
-adder plugin/ex4.java
-adder plugin/ex5a.java
-adder plugin/ex5b.java
-adder plugin/ex5bnew.java
-adder plugin/ex5c.java
-adder plugin/ex5d.java
-adder plugin/ex6b.java
-adder plugin/ex6.java
-adder plugin/ex8.java
-adder plugin/ex9.java
-adder plugin/ex10.java
-adder plugin/ex11.java
-adder plugin/ex12a.java
-adder plugin/ex12b.java
-adder plugin/FileTest2.java
-adder plugin/FileTest.java
-adder plugin/forexamples.java
-adder plugin/IntCircle.java
-adder plugin/PlayList.java
-adder plugin/PlayListTest.java
-adder plugin/Scores.java
-adder plugin/Song.java
+git add plugin/ex1.java
+git add plugin/ex2.java
+git add plugin/ex3.java
+git add plugin/ex4.java
+git add plugin/ex5a.java
+git add plugin/ex5b.java
+git add plugin/ex5bnew.java
+git add plugin/ex5c.java
+git add plugin/ex5d.java
+git add plugin/ex6b.java
+git add plugin/ex6.java
+git add plugin/ex8.java
+git add plugin/ex9.java
+git add plugin/ex10.java
+git add plugin/ex11.java
+git add plugin/ex12a.java
+git add plugin/ex12b.java
+git add plugin/FileTest2.java
+git add plugin/FileTest.java
+git add plugin/forexamples.java
+git add plugin/IntCircle.java
+git add plugin/PlayList.java
+git add plugin/PlayListTest.java
+git add plugin/Scores.java
+git add plugin/Song.java
 
+git commit -m "Update"
+git push -u origin master
 
+HERE=`pwd`
+cd /home/mestes/.vim/bundle/$REPO
+pull
 
-updater
+cd "$HERE"
 
