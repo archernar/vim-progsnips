@@ -1,4 +1,28 @@
 #!/usr/bin/ksh
+SCR=$(echo "$0" | gawk '{n=split($0, a, "/"); print a[n];}')
+Tmp=/tmp/$$
+Tmp1="/tmp/"$SCR"_"$$
+Tmp2="/tmp/"$SCR"_"$$"_"$$
+Tmp3="/tmp/"$SCR"_"$$"_"$$"_"$$
+Tmp4="/tmp/"$SCR"_"$$"_"$$"_"$$"_"$$
+trap 'exit 0' INT HUP QUIT TERM ALRM USR1
+trap 'rm -f "$Tmp" "$Tmp1" "$Tmp2" "$Tmp3" "$Tmp4"' EXIT
+rm -f "$Tmp"  >/dev/null 2>&1
+rm -f "$Tmp1" >/dev/null 2>&1
+rm -f "$Tmp2" >/dev/null 2>&1
+rm -f "$Tmp3" >/dev/null 2>&1
+rm -f "$Tmp4" >/dev/null 2>&1
+
+
+
+
+
+
+
+
+
+
+#!/usr/bin/ksh
 Tmp="/tmp/$$"
 trap 'rm -f "$Tmp" >/dev/null 2>&1' 0
 trap "exit 2" 1 2 3 13 15
