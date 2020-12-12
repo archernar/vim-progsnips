@@ -3,6 +3,7 @@ Tmp="/tmp/$$"
 trap 'rm -f "$Tmp" >/dev/null 2>&1' 0
 trap "exit 2" 1 2 3 13 15
 rm -f "$Tmp" >/dev/null 2>&1
+# KSH WOW
 
 while getopts "a:r:" arg
 do
@@ -33,3 +34,15 @@ if [ ! -r "${VAR}" ]; then
 else
   print ""
 fi
+programname=$0
+
+function usage {
+    echo "usage: $programname [-abch] [-f infile] [-o outfile]"
+    echo "  -a      turn on feature a"
+    echo "  -b      turn on feature b"
+    echo "  -c      turn on feature c"
+    echo "  -h      display help"
+    echo "  -f infile   specify input file infile"
+    echo "  -o outfile  specify output file outfile"
+    exit 1
+}
