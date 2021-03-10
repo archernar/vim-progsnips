@@ -12,6 +12,7 @@ print $ANON
 git add plugin/test.txt
 git add plugin/KSH.txt
 git add plugin/KSH2.txt
+git add plugin/SHELL.txt
 git add pushit
 git add README.md
 

@@ -13,9 +13,60 @@ rm -f "$Tmp2" >/dev/null 2>&1
 rm -f "$Tmp3" >/dev/null 2>&1
 rm -f "$Tmp4" >/dev/null 2>&1
 
+# Moxe
+
+
+logmsg() {
+echo "$(date) $(whoami) $(pwd) $(printf "%-11s" $SCR) $(printf "%-7s" $1) $2" >> /var/log/toc
+}
+msg() {
+echo $1 >> /var/log/toc
+}
+logfile() {
+echo "****************" >> /var/log/toc
+echo "** FILE DUMP" >> /var/log/toc
+echo "****************" >> /var/log/toc
+echo "$(date) $(whoami) $(pwd) $SCR  START $1" >> /var/log/toc
+cat "$1" >> /var/log/toc
+echo "$(date) $(whoami) $(pwd) $SCR  END   $1" >> /var/log/toc
+}
+
+# echo "$(date) $(whoami) $(pwd) $(pwd | gawk '{n=split($0,a,"/"); printf "%-11s" a[n];}') $(printf "%-7s" $1) $2" >> /var/log/toc
+
+
+mkredirect() {
+    ls | gawk -v url=$1 '
+         function sq(sz) { return "\x27" sz "\x27" }
+         BEGIN {
+             print "<!DOCTYPE HTML>"
+             print "<html>"
+             print "<head>"
+             print "<!--"
+             print "REDIRECT URL IS: " url
+             print "-->"
+             print "<meta http-equiv=" sq("refresh") " content=" sq("0; URL=" url) " />"
+             print "</head>"
+             print "</html>"
+         }' > /tmp/redirect.html
+}
 
 
 
+cleanurl() {
+    logmsg "MOE" "$1"
+    ARG=$(echo $1 | gawk '{sz=$0;gsub("[%]20", " ", sz);print sz;}')
+    ARG=$(echo $ARG | gawk '{sz=$0;gsub("[%]23", "#", sz);print sz;}')
+    ARG=$(echo $ARG | gawk '{sz=$0;gsub("[%]25", "%", sz);print sz;}')
+    ARG=$(echo $ARG | gawk '{sz=$0;gsub("[%]26", "&", sz);print sz;}')
+    ARG=$(echo $ARG | gawk '{sz=$0;gsub("[%]3A", ":", sz);print sz;}')
+    ARG=$(echo $ARG | gawk '{sz=$0;gsub("[%]3F", "?", sz);print sz;}')
+    ARG=$(echo $ARG | gawk '{sz=$0;gsub("[%]3D", "=", sz);print sz;}')
+    ARG=$(echo $ARG | gawk '{sz=$0;gsub("[%]2F", "/", sz);print sz;}')
+    ARG=$(echo $ARG | gawk '{sz=$0;gsub("[%]7C", "|", sz);print sz;}')
+    ARG=$(echo $ARG | gawk '{sz=$0;gsub("[%]2C", ",", sz);print sz;}')
+    ARG=$(echo $ARG | gawk '{sz=$0;gsub("%26", "&", sz);print sz;}')
+    echo $ARG
+}
 
 
 
@@ -53,6 +104,17 @@ shift $(($OPTIND - 1))
 # -O file file exists and owned by user file1 i
 # -nt file2 file1 exists and is newer than file2 file1 
 # -ot file2 file1 exists and is older then file
+
+if [[ "$V" = "RESET" ]]; then
+else
+fi
+
+Command line
+if [ $? -ne 0 ]; then
+     logmsg "$func" "$retVal"
+else
+     logmsg "$func" "OK"
+fi
 
 if [ ! -r "${VAR}" ]; then
 else
