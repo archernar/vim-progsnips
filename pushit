@@ -9,6 +9,7 @@ REPO=vim-progsnips
 ANON=`date`
 print $ANON
 
+git add plugin/updatevim
 git add plugin/test.txt
 git add plugin/KSH.txt
 git add plugin/KSH2.txt
