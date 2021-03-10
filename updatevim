@@ -1,0 +1,17 @@
+#!/usr/bin/ksh
+Tmp="/tmp/$$"
+TmpDir="/tmp/dir$$"
+trap 'rm -f "$Tmp" >/dev/null 2>&1' 0
+trap "exit 2" 1 2 3 13 15
+rm $Tmp  >/dev/null 2>&1
+
+REPO=vim-progsnips
+ANON=`date`
+print $ANON
+
+HERE=`pwd`
+cd /home/mestes/.vim/bundle/$REPO
+git pull
+
+cd "$HERE"
+
