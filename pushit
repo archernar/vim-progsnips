@@ -21,8 +21,8 @@ while getopts "g" arg
 do
     case $arg in
         g) 
-            ls plugin | sort | gawk '{printf("%-20s",$0);if(NR%4==0) print "";}' > plugin/PS.txt
-            git add plugin/PS.txt
+            ls plugin | sort | gawk '{printf("%-20s",$0);if(NR%4==0) print "";}' > plugin/PS2.txt
+            git add plugin/PS2.txt
             git add plugin/VUND.txt
             git add plugin/BASH2.txt
             git add updatevim
