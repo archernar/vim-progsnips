@@ -64,6 +64,8 @@ git add plugin/PlayListTest.java
 git add plugin/Scores.java
 git add plugin/Song.java
 
+git add plugin/BASH2.txt
+
 git commit -m "Update"
 git push -u origin master
 
