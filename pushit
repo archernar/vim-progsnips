@@ -67,9 +67,13 @@ git add plugin/Song.java
 git commit -m "Update"
 git push -u origin master
 
-HERE=`pwd`
-cd /home/mestes/.vim/bundle/$REPO
-git pull
+rm -rf $HOME/.vim/bundle/$REPO
+vim  -c ":PluginUpdate vim-session" -c ":qa!"
 
-cd "$HERE"
+
+# HERE=`pwd`
+# cd /home/mestes/.vim/bundle/$REPO
+# git pull
+# 
+# cd "$HERE"
 
