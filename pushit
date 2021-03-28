@@ -70,7 +70,10 @@ git commit -m "Update"
 git push -u origin master
 
 rm -rf $HOME/.vim/bundle/$REPO
-vim  -c ":PluginUpdate vim-session" -c ":qa!"
+vim  -c ":PluginInstall vim-session" -c ":qa!"
+ls -l $HOME/.vim/bundle
+ls -l $HOME/.vim/bundle/$REPO
+# vim  -c ":PluginUpdate vim-session" -c ":qa!"
 
 
 # HERE=`pwd`
