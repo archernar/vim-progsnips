@@ -21,6 +21,7 @@ while getopts "g" arg
 do
     case $arg in
         g) 
+            git add plugin/VUND.txt
             git add plugin/BASH2.txt
             git add updatevim
             git add plugin/test.txt
