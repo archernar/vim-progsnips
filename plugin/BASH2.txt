@@ -13,6 +13,23 @@ rm -f "$Tmp2" >/dev/null 2>&1
 rm -f "$Tmp3" >/dev/null 2>&1
 rm -f "$Tmp4" >/dev/null 2>&1
 
+REPO=vim-progsnips
+ANON=`date`
+print $ANON
+
+while getopts "g" arg
+do
+    case $arg in
+        a) ACCOUNT=$OPTARG
+           ;;
+	*) exit 0
+           ;;
+    esac
+done
+shift $(($OPTIND - 1))
+
+
+
 logmsg() {
 echo "$(date) $(whoami) $(pwd) $(printf "%-11s" $SCR) $(printf "%-7s" $1) $2" >> /var/log/toc
 }

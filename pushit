@@ -1,84 +1,99 @@
-#!/usr/bin/ksh
-Tmp="/tmp/$$"
-TmpDir="/tmp/dir$$"
-trap 'rm -f "$Tmp" >/dev/null 2>&1' 0
-trap "exit 2" 1 2 3 13 15
-rm $Tmp  >/dev/null 2>&1
+#!/bin/bash
+SCR=$(echo "$0" | gawk '{n=split($0, a, "/"); print a[n];}')
+Tmp=/tmp/$$
+Tmp1="/tmp/"$SCR"_"$$
+Tmp2="/tmp/"$SCR"_"$$"_"$$
+Tmp3="/tmp/"$SCR"_"$$"_"$$"_"$$
+Tmp4="/tmp/"$SCR"_"$$"_"$$"_"$$"_"$$
+trap 'exit 0' INT HUP QUIT TERM ALRM USR1
+trap 'rm -f "$Tmp" "$Tmp1" "$Tmp2" "$Tmp3" "$Tmp4"' EXIT
+rm -f "$Tmp"  >/dev/null 2>&1
+rm -f "$Tmp1" >/dev/null 2>&1
+rm -f "$Tmp2" >/dev/null 2>&1
+rm -f "$Tmp3" >/dev/null 2>&1
+rm -f "$Tmp4" >/dev/null 2>&1
 
 REPO=vim-progsnips
 ANON=`date`
 print $ANON
 
-git add updatevim
-git add plugin/test.txt
-git add plugin/KSH.txt
-git add plugin/KSH2.txt
-git add plugin/SHELL.txt
-git add pushit
-git add README.md
+while getopts "g" arg
+do
+    case $arg in
+        g) 
+            git add plugin/BASH2.txt
+            git add updatevim
+            git add plugin/test.txt
+            git add plugin/KSH.txt
+            git add plugin/KSH2.txt
+            git add plugin/SHELL.txt
+            git add pushit
+            git add README.md
 
-git add plugin/Appl.txt
-git add plugin/ex11.txt
-git add plugin/Gawk.txt
-git add plugin/Prim.txt
-git add plugin/QuickClass.txt
-git add plugin/Sb.txt
-git add plugin/Scanner.txt
-git add plugin/songs.txt
-git add plugin/StaticVoidMain.txt
-git add plugin/Switch.txt
-git add plugin/SysOut.txt
-git add plugin/Template.txt
-git add plugin/Try.txt
-git add plugin/Uni.txt
-git add plugin/VarChar.txt
-git add plugin/VarDouble.txt
-git add plugin/VarFloat.txt
-git add plugin/Varint.txt
-git add plugin/VarString.txt
-git add plugin/Var.txt
+            git add plugin/Appl.txt
+            git add plugin/ex11.txt
+            git add plugin/Gawk.txt
+            git add plugin/Prim.txt
+            git add plugin/QuickClass.txt
+            git add plugin/Sb.txt
+            git add plugin/Scanner.txt
+            git add plugin/songs.txt
+            git add plugin/StaticVoidMain.txt
+            git add plugin/Switch.txt
+            git add plugin/SysOut.txt
+            git add plugin/Template.txt
+            git add plugin/Try.txt
+            git add plugin/Uni.txt
+            git add plugin/VarChar.txt
+            git add plugin/VarDouble.txt
+            git add plugin/VarFloat.txt
+            git add plugin/Varint.txt
+            git add plugin/VarString.txt
+            git add plugin/Var.txt
 
-git add plugin/ex1.java
-git add plugin/ex2.java
-git add plugin/ex3.java
-git add plugin/ex4.java
-git add plugin/ex5a.java
-git add plugin/ex5b.java
-git add plugin/ex5bnew.java
-git add plugin/ex5c.java
-git add plugin/ex5d.java
-git add plugin/ex6b.java
-git add plugin/ex6.java
-git add plugin/ex8.java
-git add plugin/ex9.java
-git add plugin/ex10.java
-git add plugin/ex11.java
-git add plugin/ex12a.java
-git add plugin/ex12b.java
-git add plugin/FileTest2.java
-git add plugin/FileTest.java
-git add plugin/forexamples.java
-git add plugin/IntCircle.java
-git add plugin/PlayList.java
-git add plugin/PlayListTest.java
-git add plugin/Scores.java
-git add plugin/Song.java
-
-git add plugin/BASH2.txt
-
-git commit -m "Update"
-git push -u origin master
-
-rm -rf $HOME/.vim/bundle/$REPO
-vim  -c ":PluginInstall! $REPO" -c ":qa!"
-ls -l $HOME/.vim/bundle
-ls -l $HOME/.vim/bundle/$REPO
-# vim  -c ":PluginUpdate vim-session" -c ":qa!"
+            git add plugin/ex1.java
+            git add plugin/ex2.java
+            git add plugin/ex3.java
+            git add plugin/ex4.java
+            git add plugin/ex5a.java
+            git add plugin/ex5b.java
+            git add plugin/ex5bnew.java
+            git add plugin/ex5c.java
+            git add plugin/ex5d.java
+            git add plugin/ex6b.java
+            git add plugin/ex6.java
+            git add plugin/ex8.java
+            git add plugin/ex9.java
+            git add plugin/ex10.java
+            git add plugin/ex11.java
+            git add plugin/ex12a.java
+            git add plugin/ex12b.java
+            git add plugin/FileTest2.java
+            git add plugin/FileTest.java
+            git add plugin/forexamples.java
+            git add plugin/IntCircle.java
+            git add plugin/PlayList.java
+            git add plugin/PlayListTest.java
+            git add plugin/Scores.java
+            git add plugin/Song.java
 
 
-# HERE=`pwd`
-# cd /home/mestes/.vim/bundle/$REPO
-# git pull
-# 
-# cd "$HERE"
+            git commit -m "Update"
+            git push -u origin master
 
+            rm -rf $HOME/.vim/bundle/$REPO
+            vim  -c ":PluginInstall! $REPO" -c ":qa!"
+            ls -l $HOME/.vim/bundle
+            ls -l $HOME/.vim/bundle/$REPO
+            # vim  -c ":PluginUpdate vim-session" -c ":qa!"
+            # HERE=`pwd`
+            # cd /home/mestes/.vim/bundle/$REPO
+            # git pull
+            # 
+            # cd "$HERE"
+            ;;
+	*)  exit 0
+            ;;
+    esac
+done
+shift $(($OPTIND - 1))
