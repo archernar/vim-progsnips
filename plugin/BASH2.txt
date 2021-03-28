@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 SCR=$(echo "$0" | gawk '{n=split($0, a, "/"); print a[n];}')
 Tmp=/tmp/$$
 Tmp1="/tmp/"$SCR"_"$$
@@ -15,7 +15,7 @@ rm -f "$Tmp4" >/dev/null 2>&1
 
 REPO=vim-progsnips
 ANON=`date`
-print $ANON
+echo $ANON
 
 while getopts "g" arg
 do
