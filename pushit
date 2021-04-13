@@ -35,8 +35,8 @@ do
 
             rm -rf $HOME/.vim/bundle/$REPO
             vim  -c ":PluginInstall! $REPO" -c ":qa!"
-            ls -l $HOME/.vim/bundle
-            ls -l $HOME/.vim/bundle/$REPO
+            "ls -l $HOME/.vim/bundle
+            "ls -l $HOME/.vim/bundle/$REPO
             # vim  -c ":PluginUpdate vim-session" -c ":qa!"
             # HERE=`pwd`
             # cd /home/mestes/.vim/bundle/$REPO
