@@ -22,64 +22,13 @@ do
     case $arg in
         g) 
             ls plugin | sort | gawk '{printf("%-20s",$0);if(NR%4==0) print "";}' > plugin/PS2.txt
-            git add plugin/PS2.txt
-            git add plugin/VUND.txt
-            git add plugin/BASH2.txt
             git add updatevim
-            git add plugin/test.txt
-            git add plugin/KSH.txt
-            git add plugin/KSH2.txt
-            git add plugin/SHELL.txt
             git add pushit
             git add README.md
-
-            git add plugin/Appl.txt
-            git add plugin/ex11.txt
-            git add plugin/Gawk.txt
-            git add plugin/Prim.txt
-            git add plugin/QuickClass.txt
-            git add plugin/Sb.txt
-            git add plugin/Scanner.txt
-            git add plugin/songs.txt
-            git add plugin/StaticVoidMain.txt
-            git add plugin/Switch.txt
-            git add plugin/SysOut.txt
-            git add plugin/Template.txt
-            git add plugin/Try.txt
-            git add plugin/Uni.txt
-            git add plugin/VarChar.txt
-            git add plugin/VarDouble.txt
-            git add plugin/VarFloat.txt
-            git add plugin/Varint.txt
-            git add plugin/VarString.txt
-            git add plugin/Var.txt
-
-            git add plugin/ex1.java
-            git add plugin/ex2.java
-            git add plugin/ex3.java
-            git add plugin/ex4.java
-            git add plugin/ex5a.java
-            git add plugin/ex5b.java
-            git add plugin/ex5bnew.java
-            git add plugin/ex5c.java
-            git add plugin/ex5d.java
-            git add plugin/ex6b.java
-            git add plugin/ex6.java
-            git add plugin/ex8.java
-            git add plugin/ex9.java
-            git add plugin/ex10.java
-            git add plugin/ex11.java
-            git add plugin/ex12a.java
-            git add plugin/ex12b.java
-            git add plugin/FileTest2.java
-            git add plugin/FileTest.java
-            git add plugin/forexamples.java
-            git add plugin/IntCircle.java
-            git add plugin/PlayList.java
-            git add plugin/PlayListTest.java
-            git add plugin/Scores.java
-            git add plugin/Song.java
-
+            ls plugin | gawk '{printf("git add plugin/%s\n",$0)}' | tee $Tmp
+            chmod 777 $Tmp
+            $Tmp
+            rm -rf "$Tmp"
 
             git commit -m "Update"
             git push -u origin master
