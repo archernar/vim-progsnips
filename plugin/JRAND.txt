@@ -1,0 +1,1 @@
+private static int rand(int min, int max) { return (new Random()).nextInt(max + 1 - min) + min; }

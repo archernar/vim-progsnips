@@ -1,0 +1,4 @@
+private static void putln(String sz) { System.out.println(sz); }
+private static void putln(double d) { System.out.println(d); }
+private static void putln(float f) { System.out.println(f); }
+private static void putln(int n) { System.out.println(n); }

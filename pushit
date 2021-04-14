@@ -17,10 +17,6 @@ REPO=vim-progsnips
 ANON=`date`
 echo $ANON
 
-while getopts "g" arg
-do
-    case $arg in
-        g) 
             ls plugin | sort | gawk '{printf("%-20s",$0);if(NR%4==0) print "";}' > plugin/PS2.txt
             git add updatevim
             git add pushit
@@ -35,17 +31,3 @@ do
 
             rm -rf $HOME/.vim/bundle/$REPO
             vim  -c ":PluginInstall! $REPO" -c ":qa!"
-            "ls -l $HOME/.vim/bundle
-            "ls -l $HOME/.vim/bundle/$REPO
-            # vim  -c ":PluginUpdate vim-session" -c ":qa!"
-            # HERE=`pwd`
-            # cd /home/mestes/.vim/bundle/$REPO
-            # git pull
-            # 
-            # cd "$HERE"
-            ;;
-	*)  exit 0
-            ;;
-    esac
-done
-shift $(($OPTIND - 1))
