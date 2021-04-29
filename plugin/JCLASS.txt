@@ -1,8 +1,13 @@
 import java.util.*;
 
-public class <CLASSNAME> {
+public class CLASSNAME {
 
-    public <CLASSNAME>() {
+    public CLASSNAME() {
+    }
+
+    public static void main (String[] args) {
+        int i, j, k;
+        String sz;
     }
 
     public String toString() {
