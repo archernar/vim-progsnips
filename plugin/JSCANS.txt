@@ -1,4 +1,20 @@
-private String scanString(String szP) { System.out.print(szP); String sz = (new Scanner(System.in)).nextLine(); return sz;}
-private int    scanInt(String szP)    { System.out.print(szP); int     n = (new Scanner(System.in)).nextInt(); return n;}
-private float  scanFloat(String szP)  { System.out.print(szP); float   n = (new Scanner(System.in)).nextFloat(); return n;}
-private double scanDouble(String szP) { System.out.print(szP); double  n = (new Scanner(System.in)).nextDouble(); return n;}
+private String scanString(String szP) {
+    System.out.print(szP);
+    String sz = (new Scanner(System.in)).nextLine();
+    return sz;
+}
+private int    scanInt(String szP)    {
+    System.out.print(szP);
+    int     n = (new Scanner(System.in)).nextInt();
+    return n;
+}
+private float  scanFloat(String szP)  {
+    System.out.print(szP);
+    float   n = (new Scanner(System.in)).nextFloat();
+    return n;
+}
+private double scanDouble(String szP) {
+    System.out.print(szP);
+    double  n = (new Scanner(System.in)).nextDouble();
+    return n;
+}
