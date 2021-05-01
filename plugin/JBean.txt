@@ -1,0 +1,89 @@
+import  java.util.*;
+
+public class Bean {
+    private int i;
+    private int j;
+    private String sz;
+
+    public Bean() {
+    }
+
+    public Bean(int i, int j, String sz) {
+        this.i = i;
+        this.j = j;
+        this.sz = sz;
+    }
+    
+    public int getI() {
+        return this.i;
+    }
+    public void setI(int i) {
+        this.i = i;
+    }
+    public int getJ() {
+        return this.j;
+    }
+    public void setJ(int j) {
+        this.j = j;
+    }
+    public String getSz() {
+        return this.sz;
+    }
+    public void setSz(String sz) {
+        this.sz = sz;
+    }
+    
+    public static void main(String[] args) {
+        Bean inst = new Bean();
+        System.out.println(inst);
+        System.out.println("Hello World!");
+    }
+    
+    public String toString() {
+        String szRet = "";
+        final String sp    = " ";
+        szRet="I " + this.getI() +sp+ "J " + this.getJ() +sp+ "Sz " + this.getSz();
+        return szRet;
+    }
+    
+    public boolean equals(Bean other) {
+        boolean bRet = false;
+        // if (this.value == other.value) bRet = true;
+        return bRet;
+    }
+    
+    public int compareTo(Bean other) {
+        int nRet = 1;
+        // if (this.value <  other.value) nRet = -1;
+        // if (this.value == other.value) nRet =  0;
+        return nRet;
+    }
+    
+    public int test() {
+        int nRet = 0;
+        return nRet;
+    }
+    private static int rand(int min, int max) { return (new Random()).nextInt(max + 1 - min) + min; }
+    private static void putln(String sz) { System.out.println(sz); }
+    private static void putln(double d) { System.out.println(d); }
+    private static void putln(float f) { System.out.println(f); }
+    private static void putln(int n) { System.out.println(n); }
+    private String scanString(String szP) { System.out.print(szP); String sz = (new Scanner(System.in)).nextLine(); return sz;}
+    private int    scanInt(String szP)    { System.out.print(szP); int     n = (new Scanner(System.in)).nextInt(); return n;}
+    private float  scanFloat(String szP)  { System.out.print(szP); float   n = (new Scanner(System.in)).nextFloat(); return n;}
+    private double scanDouble(String szP) { System.out.print(szP); double  n = (new Scanner(System.in)).nextDouble(); return n;}
+    public static String randomString(int length) {
+        String candidateChars="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < length; i++) sb.append(candidateChars.charAt(random.nextInt(candidateChars.length())));
+        return sb.toString();
+    }
+    public static String randomString() {
+        return randomString(4);
+    }
+    
+    // ------------------------------------
+    // End Bean
+    // ------------------------------------
+}
