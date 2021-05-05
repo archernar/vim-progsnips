@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class CLASSNAME {
+public class classname {
 
-    public CLASSNAME() {
+    public classname() {
     }
 
     public static void main (String[] args) {
