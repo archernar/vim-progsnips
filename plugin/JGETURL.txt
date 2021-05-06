@@ -1,0 +1,16 @@
+import java.util.*;
+import java.net.*;
+import java.io.*;
+
+
+    public static void getURL(String szURL, String fileName) throws Exception {
+        URL u = new URL(szURL);
+        BufferedReader in = new BufferedReader( new InputStreamReader(u.openStream()));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+        String inputLine;
+        while ((inputLine = in.readLine()) != null) {
+            writer.write(inputLine + System.getProperty("line.separator"));
+        }
+        in.close();
+        writer.close();
+    }
