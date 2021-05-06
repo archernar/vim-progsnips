@@ -9,40 +9,26 @@ public class classname {
     public static void main (String[] args) {
         int i, j, k;
         String sz;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
-
-
-
-// Empty
-// Empty
-
-
-// Empty
-// Empty
-
-
-
-// Empty
-// Empty
-// Empty
-// Empty
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private static int rand(int min, int max) { return (new Random()).nextInt(max + 1 - min) + min; }
     private static int scanInt(String szPrompt, String szErrorMsg)    {
         boolean more = true;
         int i = 0;
