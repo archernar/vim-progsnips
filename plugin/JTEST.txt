@@ -11,6 +11,31 @@ public class classname {
         String sz;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private static int scanInt(String szPrompt, String szErrorMsg)    {
         boolean more = true;
         int i = 0;
