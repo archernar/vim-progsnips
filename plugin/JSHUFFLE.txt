@@ -1,0 +1,19 @@
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+
+public class ShuffleString { 
+	public static String shuffleJava7(String text) {
+        List<Character> characters = new LinkedList<>();
+        for(char c:text.toCharArray()){
+            characters.add(c);
+        }
+        StringBuilder result = new StringBuilder();
+        for (int index=0;index<text.length();index++){
+            int randomPosition = new Random().nextInt(characters.size());
+            result.append(characters.get(randomPosition));
+            characters.remove(randomPosition);
+        }
+        return result.toString();
+    }
+}
