@@ -1,0 +1,14 @@
+import java.io.*;
+
+public class StackTraceStringifier {
+
+    public static String stackTraceToString(Throwable e) {
+        StringWriter sw = new StringWriter();
+        PrintWriter out = new PrintWriter(sw);
+
+        e.printStackTrace(out);
+        out.flush();
+
+        return sw.toString();
+    }
+}
