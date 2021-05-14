@@ -1,0 +1,81 @@
+import java.util.*;
+import java.net.*;
+import java.io.*;
+import java.lang.reflect.Method;
+import java.io.IOException;
+
+class ShellCommand {
+    private final String myShell = new String("ksh");
+    private final int MAX = 3;
+    private String szMessageSuccess = new String("");
+    private String szMessageFailure = new String("");
+    private String[] cmds = new String[MAX];
+    private StringBuilder sb = new StringBuilder("");
+    private boolean shellless = false;
+
+    public ShellCommand() {
+        reset();
+    }
+    public ShellCommand(boolean b) {
+        reset();
+        this.shellless = !b;
+    }
+    public ShellCommand(String szSuccess, String szFailure) {
+        reset();
+        szMessageSuccess = szSuccess;
+        szMessageFailure = szSuccess;
+    }
+
+    public ShellCommand reset() {
+        cmds[0] = this.myShell;
+        cmds[1] = "-c";
+        this.sb = new StringBuilder();
+        cmds[2] = sb.toString();
+        return this;
+    }
+    public ShellCommand reset(String sz) {
+        cmds[0] = this.myShell;
+        cmds[1] = "-c";
+        this.sb = new StringBuilder(sz);
+        cmds[2] = sb.toString();
+        return this;
+    }
+    public ShellCommand append(String sz) {
+        cmds[0] = this.myShell;
+        cmds[1] = "-c";
+        sb.append(sz + ( (this.shellless) ? "" : "; ") );
+        cmds[2] = sb.toString();
+        return this;
+    }
+    public ShellCommand setShellLess(boolean b) { this.shellless = b; return this; }
+    public ShellCommand setMessageSuccess(String sz) { szMessageSuccess = sz; return this; }
+    public ShellCommand setMessageFailure(String sz) { szMessageFailure = sz; return this; }
+    public String toString() { return this.sb.toString(); }
+    public boolean run(boolean debug) { System.out.println(this); this.run(); return true; }
+
+    public boolean run() {
+        try {
+
+            Process process = (this.shellless) ? Runtime.getRuntime().exec(this.cmds[2]) : Runtime.getRuntime().exec(this.cmds);
+            StringBuilder output = new StringBuilder("");
+            BufferedReader reader = new BufferedReader( new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                output.append(line + "\n");
+            }
+            int exitVal = process.waitFor();
+            if (exitVal == 0) {
+                System.out.println(output);
+            }
+            else {
+                System.out.println("Failed! ");
+                System.out.println(output.toString());
+            }
+        } catch (Exception e) {
+            System.out.println("Caught Exception: "+ e.getMessage());
+            e.printStackTrace();
+            System.exit(1);
+        } 
+        return true;
+    }
+}
