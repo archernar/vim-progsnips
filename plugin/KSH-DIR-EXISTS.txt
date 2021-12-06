@@ -1,0 +1,18 @@
+if [ -d "${DIR}" ]; then
+
+    else
+
+fi
+
+# -a file file exists
+# -d file file exists and is a directory
+# -f file file exists and is an ordinary file
+# -r file file exists and is readable
+# -s file file exists and has a size greater than 0
+# -w file file exits and is writable
+# -x file file exists and is executable
+# -L file file exists and is a symbolic link
+# -O file file exists and owned by user file1 i
+# -nt file2 file1 exists and is newer than file2 file1 
+# -ot file2 file1 exists and is older then file
+
