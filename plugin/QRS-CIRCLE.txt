@@ -1,0 +1,34 @@
+public class Circle {
+    private float radius;
+    private Point center;
+
+    public Circle(Point center, float radius) {
+        this.center = center;
+        this.radius = radius;
+    }
+
+    public void setRadius(float radius) {
+        this.radius = radius;
+    }
+
+    public Point getCenter() {
+        return this.center;
+    }
+
+    public boolean liesOnCircle(Point p) {
+        boolean bRet = false;
+        if ( this.radius == p.distance(this.center) ) bRet = true;
+        return bRet;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
