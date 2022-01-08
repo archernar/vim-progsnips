@@ -1,0 +1,4 @@
+TOY.java|551 col 13| error: cannot find symbol
+||   symbol:   method toyshowhexp(int[],int,int,Pane)
+||   location: class TOY
+|| 1 error
