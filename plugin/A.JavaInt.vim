@@ -12,3 +12,17 @@ function! g:JavaInt()
     call s:InsertTextln("    return this." . l:name . ";")
     call s:InsertTextln("}")
 endfunction
+
+
+
+
+function! s:Insertln(...)
+    exe "set paste"
+    exe "normal! a" . "" . a:1 . "\n" . "\<Esc>"
+    exe "set nopaste"
+endfunction
+function! s:InsertTextln(...)
+    exe "set paste"
+    exe "normal! a" . "    " . a:1 . "\n" . "\<Esc>"
+    exe "set nopaste"
+endfunction
