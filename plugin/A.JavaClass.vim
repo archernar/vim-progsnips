@@ -31,7 +31,7 @@ function! g:JavaClass()
         call s:Insertln("    }")
         call s:Insertln("")
         call s:Insertln("")
-        call s:InsertTextln("}")
+        call s:Insertln("}")
 
 endfunction
 
