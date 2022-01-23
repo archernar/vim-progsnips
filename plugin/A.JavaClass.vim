@@ -1,0 +1,36 @@
+
+
+function! g:JavaClass()
+        let l:name = input('Enter class name: ')
+        let l:name = tolower(l:name)
+
+        let l:name = toupper(l:name[0:0]) . l:name[1:-1] 
+        call s:Insertln("")
+        call s:Insertln("public class " . l:name . " {")
+        call s:Insertln("")
+        call s:Insertln("")
+        call s:Insertln("    public " . l:name . "() {")
+        call s:Insertln("        super();")
+        call s:Insertln("    }")
+        call s:Insertln("")
+        call s:Insertln("")
+        call s:Insertln("    public String toString() {")
+        call s:Insertln("        String szRet = \"\";")
+        call s:Insertln("")
+        call s:Insertln("        return szRet;")
+        call s:Insertln("    }")
+        call s:Insertln("")
+        call s:Insertln("")
+        call s:Insertln("    public static void main (String args[]) {")
+        call s:Insertln("        int i = 0;")
+        call s:Insertln("        int j = 0;")
+        call s:Insertln("        String sz = \"\";")
+        call s:Insertln("")
+        call s:Insertln("        System.out.println(\"Hello World!\");")
+        call s:Insertln("")
+        call s:Insertln("    }")
+        call s:Insertln("")
+        call s:Insertln("")
+        call s:InsertTextln("}")
+
+endfunction
