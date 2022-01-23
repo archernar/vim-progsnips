@@ -1,3 +1,5 @@
+
+
 function! g:Javaclass()
         let l:name = input('Enter class name: ')
         let l:name = tolower(l:name)
