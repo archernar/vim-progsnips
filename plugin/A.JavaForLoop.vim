@@ -3,7 +3,7 @@ function! g:JavaForLoop()
     let l:name = tolower(l:name)
     " let l:name = toupper(l:name[0:0]) . l:name[1:-1]
     call s:InsertTextln("")
-    call s:InsertTextln("for (". l:name . "=0;" . l:name . "<100;" . l:name . "++) {")
+    call s:InsertTextln("for (int ". l:name . "=0;" . l:name . "<100;" . l:name . "++) {")
     call s:InsertTextln("")
     call s:InsertTextln("}")
 endfunction
