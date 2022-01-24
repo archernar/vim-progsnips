@@ -1,7 +1,7 @@
 function! g:JavaForLoop()
     let l:name = input('Enter for loop index: ')
     let l:name = tolower(l:name)
-    #let l:name = toupper(l:name[0:0]) . l:name[1:-1]
+    " let l:name = toupper(l:name[0:0]) . l:name[1:-1]
     call s:InsertTextln("")
     call s:InsertTextln("for (". l:name . "=0;" . l:name . "<100;" . l:name . "++) {")
     call s:InsertTextln("")
