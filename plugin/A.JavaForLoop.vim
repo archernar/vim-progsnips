@@ -1,4 +1,4 @@
-function! g:JavaNew()
+function! g:JavaForLoop()
     let l:name = input('Enter for loop index: ')
     let l:name = tolower(l:name)
     #let l:name = toupper(l:name[0:0]) . l:name[1:-1]
