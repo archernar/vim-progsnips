@@ -4,13 +4,14 @@ function! g:JavaRandom()
         let l:min = input('Enter min: ', '0')
         let l:max = input('Enter max: ', '100')
 
-        call s:Insertln("Random rand = new Random();")
-        call s:Insertln("// .nextInt(max + 1 - min) + min")
-        call s:Insertln("int ii = rand.nextInt(" . l:max . " + 1 - " . l:min . ") + " . l:min . ";")
-        call s:Insertln("int ii = (new Random()).nextInt(" . l:max . " + 1 - " . l:min . ") + " . l:min . ";")
+        call s:InsertTextln("Random rand = new Random();")
+        call s:InsertTextln("// .nextInt(max + 1 - min) + min")
+        call s:InsertTextln("int ii = rand.nextInt(" . l:max . " + 1 - " . l:min . ") + " . l:min . ";")
+        call s:InsertTextln("int ii = (new Random()).nextInt(" . l:max . " + 1 - " . l:min . ") + " . l:min . ";")
         call s:Insertln("")
-        call s:Insertln("private static int rand(int min, int max) { return (new Random()).nextInt(max + 1 - min) + min; }")
+        call s:InsertTextln("private static int rand(int min, int max) { return (new Random()).nextInt(max + 1 - min) + min; }")
         call s:Insertln("")
+
 
 endfunction
 
