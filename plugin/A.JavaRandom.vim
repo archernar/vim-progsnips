@@ -1,6 +1,6 @@
 
 
-function! g:JavaClassOutline()
+function! g:JavaRandom()
         let l:min = input('Enter min: ', '0')
         let l:max = input('Enter min: ', '100')
 
