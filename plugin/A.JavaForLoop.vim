@@ -5,7 +5,7 @@ function! g:JavaForLoop()
     call s:InsertTextln("")
     call s:InsertTextln("for (". l:name . "=0;" . l:name . "<100;" . l:name . "++) {")
     call s:InsertTextln("")
-    call s:Insertln("}")
+    call s:InsertTextln("}")
 endfunction
 
 
