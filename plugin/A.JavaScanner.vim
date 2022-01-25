@@ -47,7 +47,7 @@ function! s:C(...)
             exe "normal! a" . "\n    \\\\ " . "\<Esc>"
             exe "set nopaste"
         endif
-        exe "normal! a" . "    " . item  . " " . "\<Esc>"
+        exe "normal! a" . "" . item  . " " . "\<Esc>"
         exe "set nopaste"
 
         let l:ct = l:ct + 1
