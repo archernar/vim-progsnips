@@ -28,7 +28,7 @@ function! s:C(...)
     let l:list = split(a:1)
     for item in l:list
         if ( l:ct == 0 )
-            Call s:P("normal! a" . "\n    \\\\ " . "\<Esc>")
+            call s:P("normal! a" . "\n    \\\\ " . "\<Esc>")
         endif
 
         let l:c = item[-1:]
