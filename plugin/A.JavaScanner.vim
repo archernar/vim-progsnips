@@ -30,7 +30,7 @@ function! s:C(...)
         exe "set paste"
         if ( l:ct == 0 )
             exe "set paste"
-            exe "normal! o" . "\n    \\\\ " . "\<Esc>"
+            exe "normal! a" . "\n    \\\\ " . "\<Esc>"
             exe "set nopaste"
         endif
 
@@ -41,7 +41,7 @@ function! s:C(...)
         endif 
 
         exe "set paste"
-        exe "normal! o" . "" . item . l:delim . "\<Esc>"
+        exe "normal! a" . "" . item . l:delim . "\<Esc>"
         exe "set nopaste"
 
         let l:ct = l:ct + 1
