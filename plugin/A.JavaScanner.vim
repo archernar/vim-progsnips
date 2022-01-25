@@ -62,9 +62,11 @@ function! s:C(...)
             let l:ct = 0
         endif
     endfor
+    "exe "normal! a" . "    \\ " . a:1 . "\n" . "\<Esc>"
     exe "set paste"
-    exe "normal! a" . "    \\ " . a:1 . "\n" . "\<Esc>"
+    exe "normal! a" . "\n" . "\<Esc>"
     exe "set nopaste"
 endfunction
+
 
 
