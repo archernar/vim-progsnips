@@ -54,7 +54,7 @@ function! s:C(...)
         if ( l:ct == 10 )
             let l:ct = 0
         endif
-    endfoor
+    endfor
     exe "set paste"
     exe "normal! a" . "    \\ " . a:1 . "\n" . "\<Esc>"
     exe "set nopaste"
