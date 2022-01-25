@@ -58,7 +58,7 @@ function! s:C(...)
         exe "set nopaste"
 
         let l:ct = l:ct + 1
-        if ( l:ct == 10 )
+        if ( l:ct == 16 )
             let l:ct = 0
         endif
     endfor
