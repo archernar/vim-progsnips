@@ -5,6 +5,7 @@ function! g:JavaScanner()
     call s:C("public String nextLine()")
     call s:C("Advances this scanner past the current line and returns the input that was skipped. This method returns the rest of the current line, excluding any line separator at the end. The position is set to the beginning of the next line.")
     call s:C("Since this method continues to search through the input looking for a line separator, it may buffer all of the input searching for the line to skip if no line separators are present.")
+    call s:I("")
     call s:I("Scanner in = new Scanner(System.in)")
     call s:I("System.out.print(\"Enter an integer: \")")
     call s:I("n = in.nextInt()")
@@ -13,6 +14,12 @@ function! g:JavaScanner()
     call s:I("System.out.print(\"Enter a string: \")")
     call s:I("s = in.next()")
     call s:I("in.close()")
+
+    call s:I("")
+
+    call s:I{"int    i = Integer.parseInt(sz);")
+    call s:I{"float  f = Float.parseFloat(sz);")
+    call s:I{"double d = Double.parseDouble(sz);")
 
 endfunction
 
