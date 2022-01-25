@@ -17,9 +17,9 @@ function! g:JavaScanner()
 
     call s:I("")
 
-    call s:I{"int    i = Integer.parseInt(sz);")
-    call s:I{"float  f = Float.parseFloat(sz);")
-    call s:I{"double d = Double.parseDouble(sz);")
+    call s:I("int    i = Integer.parseInt(sz);")
+    call s:I("float  f = Float.parseFloat(sz);")
+    call s:I("double d = Double.parseDouble(sz);")
 
 endfunction
 
