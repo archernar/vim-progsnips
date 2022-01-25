@@ -36,14 +36,25 @@ function! s:I(...)
     exe "normal! a" . "    " . a:1 . "\n" . "\<Esc>"
     exe "set nopaste"
 endfunction
+
 function! s:C(...)
+    let l:ct = 0
     let l:list = split(a:1)
     for item in l:list
         exe "set paste"
-        "exe "normal! a" . "    \\\\ " . item  . "\n" . "\<Esc>"
-        exe "normal! a" . "    " . item  . "\n" . "\<Esc>"
+        if ( l:ct == 0 )
+            exe "set paste"
+            exe "normal! a" . "\n    \\\\ " . "\<Esc>"
+            exe "set nopaste"
+        endif
+        exe "normal! a" . "    " . item  . " " . "\<Esc>"
         exe "set nopaste"
-    endfor
+
+        let l:ct = l:ct + 1
+        if ( l:ct == 10 )
+            let l:ct = 0
+        endif
+    endfoor
     exe "set paste"
     exe "normal! a" . "    \\ " . a:1 . "\n" . "\<Esc>"
     exe "set nopaste"
