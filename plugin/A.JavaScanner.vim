@@ -11,16 +11,13 @@ function! g:JavaScanner()
     call s:I("s = in.next()")
     call s:I("in.close()")
 
-
 endfunction
 
 
 
 
 function! s:I(...)
-    exe "set paste"
-    exe "normal! o" . "    " . a:1 . "\n" . "\<Esc>"
-    exe "set nopaste"
+    call s:E("normal! o" . "    " . a:1 . "\n" . "\<Esc>")
 endfunction
 
 function! s:C(...)
@@ -28,7 +25,7 @@ function! s:C(...)
     let l:list = split(a:1)
     for item in l:list
         if ( l:ct == 0 )
-            call s:P("normal! a" . "\n    \\\\ " . "\<Esc>")
+            call s:E("normal! a" . "\n    \\\\ " . "\<Esc>")
         endif
 
         let l:c = item[-1:]
@@ -37,7 +34,7 @@ function! s:C(...)
             let l:delim = "  "
         endif 
 
-        call s:P("normal! a" . "" . item . l:delim . "\<Esc>")
+        call s:E("normal! a" . "" . item . l:delim . "\<Esc>")
 
         let l:ct = l:ct + 1
         if ( l:ct == 16 )
@@ -46,7 +43,7 @@ function! s:C(...)
     endfor
 endfunction
 
-function! s:P(...)
+function! s:E(...)
     exe "set paste"
     exe a:1
     exe "set nopaste"
