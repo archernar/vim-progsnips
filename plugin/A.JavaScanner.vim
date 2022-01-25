@@ -47,8 +47,14 @@ function! s:C(...)
             exe "normal! a" . "\n    \\\\ " . "\<Esc>"
             exe "set nopaste"
         endif
+
         let l:c = item[-1:]
-        exe "normal! a" . "" . item  . l:c . " " . "\<Esc>"
+        let l:delim = " "
+        if ( l:c == ".")
+            let l:delim = "  "
+        endif 
+
+        exe "normal! a" . "" . item . l:delim . "\<Esc>"
         exe "set nopaste"
 
         let l:ct = l:ct + 1
