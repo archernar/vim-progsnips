@@ -1,5 +1,7 @@
 function! g:JavaScanner()
     call s:I("import java.util.Scanner;")
+    call s:C("public String next()")
+    call s:C("Finds and returns the next complete token from this scanner. A complete token is preceded and followed by input that matches the delimiter pattern. This method may block while waiting for input to scan, even if a previous invocation of hasNext() returned true.")
     call s:I("Scanner in = new Scanner(System.in)")
     call s:I("System.out.print(\"Enter an integer: \")")
     call s:I("n = in.nextInt()")
@@ -9,12 +11,7 @@ function! g:JavaScanner()
     call s:I("s = in.next()")
     call s:I("in.close()")
 
-    call s:C("public String next()")
-    call s:C("Finds and returns the next complete token from this scanner. A complete token is preceded and followed by input that matches the delimiter pattern. This method may block while waiting for input to scan, even if a previous invocation of hasNext() returned true.")
 
-"   let l:name = input('Enter for loop index: ')
-"   let l:name = tolower(l:name)
-" let l:name = toupper(l:name[0:0]) . l:name[1:-1]
 endfunction
 
 
