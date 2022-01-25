@@ -27,11 +27,8 @@ function! s:C(...)
     let l:ct = 0
     let l:list = split(a:1)
     for item in l:list
-        exe "set paste"
         if ( l:ct == 0 )
-            exe "set paste"
-            exe "normal! a" . "\n    \\\\ " . "\<Esc>"
-            exe "set nopaste"
+            Call s:P("normal! a" . "\n    \\\\ " . "\<Esc>")
         endif
 
         let l:c = item[-1:]
@@ -40,9 +37,7 @@ function! s:C(...)
             let l:delim = "  "
         endif 
 
-        exe "set paste"
-        exe "normal! a" . "" . item . l:delim . "\<Esc>"
-        exe "set nopaste"
+        call s:P("normal! a" . "" . item . l:delim . "\<Esc>")
 
         let l:ct = l:ct + 1
         if ( l:ct == 16 )
@@ -51,5 +46,10 @@ function! s:C(...)
     endfor
 endfunction
 
+function! s:P(...)
+    exe "set paste"
+    exe a:1
+    exe "set nopaste"
+endfunction
 
 
