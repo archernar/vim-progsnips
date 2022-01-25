@@ -3,7 +3,6 @@ function! g:JavaInt()
     let l:name = tolower(l:name)
     let l:type = "int"
 
-    call s:InsertTextln("")
     call s:InsertTextln("private " . l:type . " " . l:name . ";")
     call s:InsertTextln("public void set" . toupper(l:name[0:0]) . l:name[1:-1] . "(" . l:type . " v) {")
     call s:InsertTextln("    this." . l:name . " = v" . ";")
@@ -18,11 +17,11 @@ endfunction
 
 function! s:Insertln(...)
     exe "set paste"
-    exe "normal! a" . "" . a:1 . "\n" . "\<Esc>"
+    exe "normal! o" . "" . a:1 . "\n" . "\<Esc>"
     exe "set nopaste"
 endfunction
 function! s:InsertTextln(...)
     exe "set paste"
-    exe "normal! a" . "    " . a:1 . "\n" . "\<Esc>"
+    exe "normal! o" . "    " . a:1 . "\n" . "\<Esc>"
     exe "set nopaste"
 endfunction
