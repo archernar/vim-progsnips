@@ -63,9 +63,9 @@ function! s:C(...)
         endif
     endfor
     "exe "normal! a" . "    \\ " . a:1 . "\n" . "\<Esc>"
-    exe "set paste"
-    exe "normal! a" . "\n" . "\<Esc>"
-    exe "set nopaste"
+"   exe "set paste"
+"   exe "normal! a" . "\n" . "\<Esc>"
+"   exe "set nopaste"
 endfunction
 
 
