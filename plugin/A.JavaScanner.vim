@@ -17,20 +17,9 @@ endfunction
 
 
 
-function! s:Insertln(...)
-    exe "set paste"
-    exe "normal! a" . "" . a:1 . "\n" . "\<Esc>"
-    exe "set nopaste"
-endfunction
-function! s:InsertTextln(...)
-    exe "set paste"
-    exe "normal! a" . "    " . a:1 . "\n" . "\<Esc>"
-    exe "set nopaste"
-endfunction
-
 function! s:I(...)
     exe "set paste"
-    exe "normal! a" . "    " . a:1 . "\n" . "\<Esc>"
+    exe "normal! o" . "    " . a:1 . "\n" . "\<Esc>"
     exe "set nopaste"
 endfunction
 
@@ -41,7 +30,7 @@ function! s:C(...)
         exe "set paste"
         if ( l:ct == 0 )
             exe "set paste"
-            exe "normal! a" . "\n    \\\\ " . "\<Esc>"
+            exe "normal! o" . "\n    \\\\ " . "\<Esc>"
             exe "set nopaste"
         endif
 
@@ -51,7 +40,8 @@ function! s:C(...)
             let l:delim = "  "
         endif 
 
-        exe "normal! a" . "" . item . l:delim . "\<Esc>"
+        exe "set paste"
+        exe "normal! o" . "" . item . l:delim . "\<Esc>"
         exe "set nopaste"
 
         let l:ct = l:ct + 1
@@ -59,10 +49,6 @@ function! s:C(...)
             let l:ct = 0
         endif
     endfor
-    "exe "normal! a" . "    \\ " . a:1 . "\n" . "\<Esc>"
-"   exe "set paste"
-"   exe "normal! a" . "\n" . "\<Esc>"
-"   exe "set nopaste"
 endfunction
 
 
