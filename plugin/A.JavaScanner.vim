@@ -1,5 +1,5 @@
 function! g:JavaScanner()
-    s:I("import java.util.Scanner;")
+    call s:I("import java.util.Scanner;")
 "   s:InsertTextln("Scanner in = new Scanner(System.in)")
 "   s:InsertTextln("System.out.print(\"Enter an integer: \")");
 "   s:InsertTextln("n = in.nextInt();
