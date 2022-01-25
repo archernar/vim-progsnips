@@ -1,13 +1,13 @@
 function! g:JavaScanner()
-    s:InsertText("import java.util.Scanner;")
-    s:InsertTest("Scanner in = new Scanner(System.in)")
-    s:InsertTest("System.out.print(\"Enter an integer: \")");
-    s:InsertTest("n = in.nextInt();
-    s:InsertTest("System.out.print(\"Enter a floating point: \")");
-    s:InsertTest("n = in.nextDouble()");
-    s:InsertTest("System.out.print(\"Enter a string: \")");
-    s:InsertTest("s = in.next()");
-    s:InsertTest("in.close()");
+    s:InsertTextln("import java.util.Scanner;")
+    s:InsertTextln("Scanner in = new Scanner(System.in)")
+    s:InsertTextln("System.out.print(\"Enter an integer: \")");
+    s:InsertTextln("n = in.nextInt();
+    s:InsertTextln("System.out.print(\"Enter a floating point: \")");
+    s:InsertTextln("n = in.nextDouble()");
+    s:InsertTextln("System.out.print(\"Enter a string: \")");
+    s:InsertTextln("s = in.next()");
+    s:InsertTextln("in.close()");
 
 "   let l:name = input('Enter for loop index: ')
 "   let l:name = tolower(l:name)
