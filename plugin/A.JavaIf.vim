@@ -1,11 +1,8 @@
 function! g:JavaIf()
     let l:condition = input('Enter a condition: ', "x == 0")
     " let l:name = toupper(l:name[0:0]) . l:name[1:-1]
-    call s:InsertTextln("")
     call s:InsertTextln("if (" . l:condition . ") {")
-    call s:InsertTextln("")
     call s:InsertTextln("} else {")
-    call s:InsertTextln("")
     call s:InsertTextln("}")
 endfunction
 
