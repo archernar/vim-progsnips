@@ -1,0 +1,58 @@
+import java.io.*;
+
+public class DualStream extends PrintStream {
+    public PrintStream consoleOutput = null;
+    public PrintStream fileOutput = null;
+
+    public DualStream(final PrintStream consoleOutput, final PrintStream fileOutput) throws FileNotFoundException {
+        super(fileOutput, true);
+        this.consoleOutput = consoleOutput;
+        this.fileOutput = fileOutput;
+    }
+
+    @Override
+    public void println() {
+        consoleOutput.println();
+        super.println();
+    }
+
+    @Override
+    public void println(final Object output) {
+       consoleOutput.println(output);
+        super.println(output);
+    }
+
+    @Override
+    public void println(final String output) {
+        consoleOutput.println(output);
+        super.println(output);
+    }
+
+    @Override
+    public PrintStream printf(final String output, final Object... variables) {
+        consoleOutput.printf(output, variables);
+        super.printf(output, variables);
+        return this;
+    }
+
+    public static void outputFile(final String file) {
+        PrintStream CombinedOutput = null;
+        try {
+            CombinedOutput = new DualStream(System.out, new PrintStream(new BufferedOutputStream(new FileOutputStream(file))));
+        } catch (final FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        System.setOut(CombinedOutput);
+    }
+
+    public static void main (String[] args) {
+        String sz;
+        final String file = "dualout.txt";
+        outputFile(file);
+    
+        for (int i=0;i<10;i++) {
+            System.out.println("Hello World!");
+        }
+
+    }
+}
