@@ -1,33 +1,27 @@
-#!/bin/bash
-SCR=$(echo "$0" | gawk '{n=split($0, a, "/"); print a[n];}')
-Tmp=/tmp/$$
-Tmp1="/tmp/"$SCR"_"$$
-Tmp2="/tmp/"$SCR"_"$$"_"$$
-Tmp3="/tmp/"$SCR"_"$$"_"$$"_"$$
-Tmp4="/tmp/"$SCR"_"$$"_"$$"_"$$"_"$$
-trap 'exit 0' INT HUP QUIT TERM ALRM USR1
-trap 'rm -f "$Tmp" "$Tmp1" "$Tmp2" "$Tmp3" "$Tmp4"' EXIT
-rm -f "$Tmp"  >/dev/null 2>&1
-rm -f "$Tmp1" >/dev/null 2>&1
-rm -f "$Tmp2" >/dev/null 2>&1
-rm -f "$Tmp3" >/dev/null 2>&1
-rm -f "$Tmp4" >/dev/null 2>&1
+#!/usr/bin/ksh
+Tmp="/tmp/$$"
+TmpDir="/tmp/dir$$"
+trap 'rm -f "$Tmp" >/dev/null 2>&1' 0
+trap "exit 2" 1 2 3 13 15
+rm $Tmp  >/dev/null 2>&1
+
+
+#-------------------------------------------------------------------------------------
+git commit -m "Update"
+git push -u origin master
 
 REPO=vim-progsnips
-ANON=`date`
-echo $ANON
-
-            ls plugin | sort | gawk '{printf("%-20s",$0);if(NR%4==0) print "";}' > plugin/PS2.txt
-            git add updatevim
-            git add pushit
-            git add README.md
-            ls plugin | gawk '{printf("git add plugin/%s\n",$0)}' | tee $Tmp
-            chmod 777 $Tmp
-            $Tmp
-            rm -rf "$Tmp"
-
-            git commit -m "Update"
-            git push -u origin master
-
-            rm -rf $HOME/.vim/bundle/$REPO
-            vim  -c ":PluginInstall! $REPO" -c ":qa!"
+rm -rf $HOME/.vim/bundle/$REPO
+vim  -c ":PluginInstall! $REPO" -c ":qa!"
+#-------------------------------------------------------------------------------------
+# if you want to remove the file from the Git repository and the filesystem, use:
+# 
+# git rm file1.txt
+# git commit -m "remove file1.txt"
+# But if you want to remove the file only from the Git repository and not remove it from the filesystem, use:
+# 
+# git rm --cached file1.txt
+# git commit -m "remove file"; git push origin master
+# And to push changes to remote repo
+# 
+# git push origin branch_name
