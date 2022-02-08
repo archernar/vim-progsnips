@@ -1,6 +1,6 @@
 
 
-function! g:JavaClass()
+function! g:JavaClassFile()
         let l:name = input('Enter class name: ',"Test")
         let l:name = tolower(l:name)
 
