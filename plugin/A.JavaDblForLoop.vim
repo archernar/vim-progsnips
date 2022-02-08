@@ -13,6 +13,7 @@ function! g:JavaDblForLoop()
     call s:InsertTextln("    }")
     call s:InsertTextln("")
     call s:InsertTextln("}")
+    call s:InsertTextln("")
 endfunction
 
 
