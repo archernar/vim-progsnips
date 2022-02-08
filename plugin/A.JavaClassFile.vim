@@ -33,6 +33,6 @@ function! s:Insertln(...)
 endfunction
 function! s:InsertTextln(...)
     exe "set paste"
-    exe "normal! o" . "    " . a:1 . "\n" . "\<Esc>"
+    exe "normal! o" . "    " . a:1 . "" . "\<Esc>"
     exe "set nopaste"
 endfunction
