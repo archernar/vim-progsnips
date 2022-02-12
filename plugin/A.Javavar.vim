@@ -57,3 +57,13 @@ function! g:Javavar()
     call s:InsertTextln("    return this." . l:name . ";")
     call s:InsertTextln("}")
 endfunction
+function! s:Insertln(...)
+    exe "set paste"
+    exe "normal! o" . "" . a:1 . "" . "\<Esc>"
+    exe "set nopaste"
+endfunction
+function! s:InsertTextln(...)
+    exe "set paste"
+    exe "normal! o" . "    " . a:1 . "" . "\<Esc>"
+    exe "set nopaste"
+endfunction
