@@ -1,4 +1,4 @@
-function! g:Javaclass()
+function! g:Javavar()
     let l:name = input('Enter variable name: ')
     let l:name = tolower(l:name)
     let l:type = "String"
