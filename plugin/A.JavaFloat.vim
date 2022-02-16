@@ -13,4 +13,4 @@ function! g:JavaFloat()
     call s:InsertTextln("}")
 endfunction
 
-exe "source " . $HOME "/.vim/bundle/vim-progsnips/plugin/utils.vim"
+exe "source " . $HOME  . "/.vim/bundle/vim-progsnips/plugin/utils.vim"
