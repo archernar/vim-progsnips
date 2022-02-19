@@ -1,7 +1,7 @@
-function! g:JavaShort()
-    let l:name = input('Enter short variable name: ')
+function! g:JavaByte()
+    let l:name = input('Enter byte variable name: ')
     let l:name = tolower(l:name)
-    let l:type = "short"
+    let l:type = "byte"
 
     call g:InsertTextln("private " . l:type . " " . l:name . ";")
     call g:InsertTextln("public void set" . toupper(l:name[0:0]) . l:name[1:-1] . "(" . l:type . " v) {")
