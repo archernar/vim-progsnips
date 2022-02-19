@@ -8,7 +8,7 @@ function! g:JavaRandom()
         call g:InsertTextln("// .nextInt(max + 1 - min) + min")
         call g:InsertTextln("int ii = rand.nextInt(" . l:max . " + 1 - " . l:min . ") + " . l:min . ";")
         call g:InsertTextln("int ii = (new Random()).nextInt(" . l:max . " + 1 - " . l:min . ") + " . l:min . ";")
-        call g:InsertTextln("private static int rand(int min, int max) { return (new Random()).nextInt(max + 1 - min) + min; }")
+        call g:InsertTextln("private static int rand(int min, int max) { return (new java.util.Random()).nextInt(max + 1 - min) + min; }")
 
 
 endfunction
