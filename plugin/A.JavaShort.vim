@@ -10,4 +10,5 @@ function! g:JavaShort()
     call g:InsertTextln("public " . l:type . " get" . toupper(l:name[0:0]) . l:name[1:-1] . "() {")
     call g:InsertTextln("    return this." . l:name . ";")
     call g:InsertTextln("}")
+
 endfunction
