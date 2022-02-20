@@ -3,6 +3,7 @@ function! g:JavaBoolean()
     let l:name = tolower(l:name)
     let l:type = "boolean"
 
+    call g:SavePos()
     call g:InsertTextln("")
     call g:InsertTextln("private " . l:type . " " . l:name . ";")
     call g:InsertTextln("public void set" . toupper(l:name[0:0]) . l:name[1:-1] . "(" . l:type . " v) {")
@@ -11,6 +12,7 @@ function! g:JavaBoolean()
     call g:InsertTextln("public " . l:type . " get" . toupper(l:name[0:0]) . l:name[1:-1] . "() {")
     call g:InsertTextln("    return this." . l:name . ";")
     call g:InsertTextln("}")
+    call g:RestorePos()
 endfunction
 
 
