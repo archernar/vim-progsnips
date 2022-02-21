@@ -1,7 +1,7 @@
 function! g:JavaComment()
-    call g:SavePos()
+    call g:Pos(0)
     call g:Insertln("// ***********************************************")
     call g:Insertln("// Comment")
     call g:Insertln("// ***********************************************")
-    call g:RestorePos()
+    call g:Pos(1)
 endfunction
