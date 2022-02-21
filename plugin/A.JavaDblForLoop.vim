@@ -4,6 +4,7 @@ function! g:JavaDblForLoop()
     let l:idx2 = input('Enter for second loop index: ')
     let l:idx2 = tolower(l:idx2)
 
+    call g:Pos(0)
     call g:InsertTextln("")
     call g:InsertTextln("for (int ". l:idx1 . "=0;" . l:idx1 . "<100;" . l:idx1 . "++) {")
     call g:InsertTextln("    for (int ". l:idx2 . "=0;" . l:idx2 . "<100;" . l:idx2 . "++) {")
@@ -12,4 +13,5 @@ function! g:JavaDblForLoop()
     call g:InsertTextln("")
     call g:InsertTextln("}")
     call g:InsertTextln("")
+    call g:Pos(1)
 endfunction
