@@ -9,6 +9,6 @@ function! g:JavaSwitch()
     call g:InsertTextln("        break;")
     call g:InsertTextln("    default:")
     call g:InsertTextln("        break;")
-    call g:InsertTextln("}
+    call g:InsertTextln("}")
     call g:Pos(1)
 endfunction
