@@ -1,0 +1,10 @@
+THISTEXT
+import java.util.Scanner;
+import java.io.*;
+      String line;
+      Scanner fileScan;
+      fileScan = new Scanner(new File("file.txt"));
+      while (fileScan.hasNext()) {
+         line = fileScan.nextLine();
+         System.out.println();
+      }
