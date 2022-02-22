@@ -1,4 +1,5 @@
 cat datumfile | gawk '
+
 function getVersionString() { return "1.00" }
 function ltrim(s) { sub(/^ */, "", s); return s }
 function rtrim(s) { sub(/ *$/, "", s); return s }
