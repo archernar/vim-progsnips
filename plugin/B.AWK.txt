@@ -1,3 +1,4 @@
+THISTEXT
 cat datumfile | gawk '
 
 function getVersionString() { return "1.00" }
