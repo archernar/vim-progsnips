@@ -1,27 +1,14 @@
-
-
 function! g:JavaClassOutline()
-        let l:name = input('Enter class name: ')
-        let l:name = tolower(l:name)
+    let l:name = input('Enter class name: ')
+    let l:name = tolower(l:name)
 
-        let l:name = toupper(l:name[0:0]) . l:name[1:-1] 
-        call s:Insertln("")
-        call s:Insertln("public class " . l:name . " {")
-        call s:Insertln("")
-        call s:Insertln("")
-        call s:Insertln("")
-        call s:Insertln("")
-        call s:Insertln("}")
-
-endfunction
-
-function! s:Insertln(...)
-    exe "set paste"
-    exe "normal! o" . "" . a:1 . "" . "\<Esc>"
-    exe "set nopaste"
-endfunction
-function! s:InsertTextln(...)
-    exe "set paste"
-    exe "normal! o" . "    " . a:1 . "" . "\<Esc>"
-    exe "set nopaste"
+    let l:name = toupper(l:name[0:0]) . l:name[1:-1] 
+    call g:Pos(0)
+    call g:Insertln("")
+    call g:Insertln("public class " . l:name . " {")
+    call g:Insertln("")
+    call g:Insertln("")
+    call g:Insertln("")
+    call g:Insertln("}")
+    call g:Pos(1)
 endfunction
