@@ -1,6 +1,5 @@
 function! g:JavaCompareTo()
         let l:type = input('Enter argument class type: ',"Test")
-        let l:type = tolower(l:type)
 
         call g:Pos(0)
         call g:Insertln("")
