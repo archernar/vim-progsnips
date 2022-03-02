@@ -9,7 +9,11 @@ function! g:JavaMethod()
 
         call g:Insertln("")
         call g:Insertln("    public " . l:type . " " . l:name . "() {")
-        call g:Insertln("        " . l:type . " ret;")
+
+        if ( l:type != "void" )
+            call g:Insertln("        " . l:type . " ret;")
+        endif
+
         call g:Insertln("        String sz = \"\";")
         call g:Insertln("        System.out.println(\"Hello World!\");")
         if ( l:type != "void" )
