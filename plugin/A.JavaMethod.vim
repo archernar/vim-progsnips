@@ -12,7 +12,10 @@ function! g:JavaMethod()
         call g:Insertln("        " . l:type . " ret;")
         call g:Insertln("        String sz = \"\";")
         call g:Insertln("        System.out.println(\"Hello World!\");")
-        call g:Insertln("        return ret;")
+        if ( l:type != "void" )
+            call g:Insertln("        return ret;")
+        endif
+
         call g:Insertln("    }")
         call g:Pos(1)
 endfunction
