@@ -1,7 +1,7 @@
 function! g:JavaFloat()
-    let l:name = input('Enter int variable name: ')
-    let l:name = tolower(l:name)
     let l:type = "float"
+    let l:name = input("Enter " . l:type . " variable name: ")
+    let l:name = tolower(l:name)
 
     call g:Pos(0)
     call g:InsertTextln("")
