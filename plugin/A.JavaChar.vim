@@ -1,6 +1,6 @@
 function! g:JavaChar()
     let l:type = "char"
-    let l:name = input("Enter " . l:type . " variable name: ")
+    let l:name = input("Enter " . l:type . " variable name: ", "c")
     let l:name = tolower(l:name)
 
     call g:Pos(0)
