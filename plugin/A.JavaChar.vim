@@ -1,7 +1,7 @@
 function! g:JavaChar()
-    let l:name = input('Enter char variable name: ')
-    let l:name = tolower(l:name)
     let l:type = "char"
+    let l:name = input("Enter " . l:type . " variable name: ")
+    let l:name = tolower(l:name)
 
     call g:Pos(0)
     call g:InsertTextln("")
@@ -14,3 +14,4 @@ function! g:JavaChar()
     call g:InsertTextln("}")
     call g:Pos(1)
 endfunction
+
