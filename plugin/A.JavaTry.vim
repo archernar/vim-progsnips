@@ -7,6 +7,19 @@ function! g:JavaTry()
     call g:InsertTextln("    e.printStackTrace();")
     call g:InsertTextln("} finally {")
     call g:InsertTextln("}")
+
+   call g:InsertTextln("
+   try {
+                 
+   } catch (Exception e) {
+        e.printStackTrace();
+   } finally {
+
+   }
+   ")
+
+
+
     call g:Pos(1)
 endfunction
 
