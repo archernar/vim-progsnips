@@ -1,25 +1,12 @@
 function! g:JavaTry()
     call g:Pos(0)
-    call g:InsertTextln("try {")
-    call g:InsertTextln("")
-    call g:InsertTextln("} catch (Exception e) {")
-    call g:InsertTextln("    System.out.println(\"Caught Exception: \" + e.getMessage());")
-    call g:InsertTextln("    e.printStackTrace();")
-    call g:InsertTextln("} finally {")
-    call g:InsertTextln("}")
-
-   call g:InsertTextln("
-   try {
-                 
-   } catch (Exception e) {
-        e.printStackTrace();
-   } finally {
-
-   }
-   ")
-
-
-
+    call g:Insertln("try {")
+    call g:Insertln("")
+    call g:Insertln("} catch (Exception e) {")
+    call g:Insertln("    System.out.println(\"Caught Exception: \" + e.getMessage());")
+    call g:Insertln("    e.printStackTrace();")
+    call g:Insertln("} finally {")
+    call g:Insertln("}")
     call g:Pos(1)
 endfunction
 
