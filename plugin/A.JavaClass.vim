@@ -35,9 +35,9 @@ function! g:JavaClass()
         call g:Insertln("private void put(double a)   { System.out.print(a); }")
         call g:Insertln("private void putln(double a) { System.out.println(a); }")
 
-        call g:Insertln("private int getInt()       { return (new Scanner()).nextInt(); }")
-        call g:Insertln("private float getFloat()   { return (new Scanner()).nextFloat(); }")
-        call g:Insertln("private String getString() { return (new Scanner()).next(); }")
+        call g:Insertln("private int getInt()       { return (new Scanner(System.in)).nextInt(); }")
+        call g:Insertln("private float getFloat()   { return (new Scanner(System.in)).nextFloat(); }")
+        call g:Insertln("private String getString() { return (new Scanner(System.in)).next(); }")
 
         call g:Insertln("private int getInt(String szP)       { put(szP); return (new Scanner(System.in)).nextInt(); }")
         call g:Insertln("private float getFloat(String szP)   { put(szP); return (new Scanner(System.in)).nextFloat(); }")
