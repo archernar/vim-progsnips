@@ -20,9 +20,11 @@ function! g:JavaClass()
         call g:Insertln("        int i = 0;")
         call g:Insertln("        int j = 0;")
         call g:Insertln("        String sz = \"\";")
-        call g:Insertln("        System.out.println(" . l:name . " obj = new " . l:name ."();")
+        call g:Insertln("        l:name . " obj = new " . l:name ."();")
         call g:Insertln("        System.out.println(\"Hello World!\");")
         call g:Insertln("    }")
+
+
         call g:Insertln("")
         call g:Insertln("")
         call g:Insertln("private void put(String a)   { System.out.print(a); }")
