@@ -1,19 +1,3 @@
-/**
- * Created by gokhanyavas on 16.03.2017.
- 
- Sınıflar ve Nesneler: 
- Java programları sınıflardan oluşur. Nesneler ise sınıflardan türerler.
- 
- New Operatörü:
- Bu operatör sınıf adı ile birlikte kullanılarak bellekte sınıfa ait yeni bir nesne oluşturulmasını sağlar. 
- Eğer nesneler new operatörü ile oluşturulmazsa null varsayılan değerini alırlar. Böyle bir durumda uygulamada 
- bu nesnelerin üyelerine erişmeye çalışıldığında java NullPointerException hatası üretir.
- 
- Nokta(.) operatörü: 
- Nesneler new op. ile oluşturulduktan sonra, nesnelere dışarıdan erişim sağlayabilmek için kullanılır.
- 
- */
-
 class Person{
     //Instance variable (data or "state")
     String name;

@@ -1,9 +1,5 @@
 import java.util.*;
 
-/**
- * Created by gokhanyavas on 24.03.2017.
- */
-
 class Person {
 
     private int id;

@@ -1,6 +1,3 @@
-/**
- * Created by gokhanyavas on 9.04.2017.
- */
 public class App2 {
     public static void main(String[] args) {
 

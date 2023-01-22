@@ -1,16 +1,3 @@
-/**
- * Created by gokhanyavas on 21.03.2017.
- 
- Bir iç sınıf herhangi bir kod bloğunda class anahtar sözcüğü kullanılmadan veya herhangi bir
- isim verilmeden kullanılırsa anonim sınıf oluşturulmul olur.
- 
- Anonim sınıflara Java kendi isim verdiğinden isim verilememektedir. Oluşturulan isimsiz sınıflar için 
- java kendisi sıra ile isimler verilmektedir. Bu sınıf sadece tanımlandığı kod bloğunda kullanılır. Bir başka 
- kod bloğunda kullanılmaz. 
- Anonim sınıflar bir sınıfın bir başka sınıfı ve arabirimi genişletip yöntemlerini override etmekte kullanılır.
- 
- */
-
 class Machine{
     public void start(){
         System.out.println("Starting machine ...");

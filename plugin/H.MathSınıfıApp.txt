@@ -1,16 +1,5 @@
 import java.util.Map;
 
-/**
- * Created by gokhanyavas on 9.04.2017.
- *
- *
- *
- Rastgele sayi uretimi...
-
- random sayi uretmek icin kullanilir
- belli degerler arasinda uretmek icin Math.random()*10 seklinde kullanilir
-
- */
 public class App {
 
     public static void main(String[] args) {

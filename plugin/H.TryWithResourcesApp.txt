@@ -1,6 +1,3 @@
-/**
- * Created by gokhanyavas on 22.03.2017.
- */
 class Temp implements AutoCloseable{
 
     @Override

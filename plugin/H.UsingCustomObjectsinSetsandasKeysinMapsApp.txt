@@ -3,10 +3,6 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Created by gokhanyavas on 24.03.2017.
- */
-
 class Person {
 
     private int id;

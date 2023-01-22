@@ -1,8 +1,5 @@
 import java.io.Serializable;
 
-/**
- * Created by gokhanyavas on 22.03.2017.
- */
 public class Person implements Serializable{
 
     private static final long serialVersionUID = 4801633306273802062L;

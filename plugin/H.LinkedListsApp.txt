@@ -2,9 +2,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by gokhanyavas on 23.03.2017.
- */
 public class App {
 
     public static void main(String[] args) {

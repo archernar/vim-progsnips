@@ -1,9 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by gokhanyavas on 23.03.2017.
- */
 public class App {
 
     public static void main(String[] args) {

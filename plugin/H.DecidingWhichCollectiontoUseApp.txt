@@ -11,9 +11,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-/**
- * Created by gokhanyavas on 26.03.2017.
- */
 public class App {
 
     public static void main(String[] args) {

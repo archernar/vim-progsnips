@@ -1,9 +1,6 @@
 import java.io.IOException;
 import java.text.ParseException;
 
-/**
- * Created by gokhanyavas on 21.03.2017.
- */
 public class App {
     public static void main(String[] args) {
 

@@ -2,9 +2,6 @@ import java.util.NoSuchElementException;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
-/**
- * Created by gokhanyavas on 24.03.2017.
- */
 public class App {
 
     public static void main(String[] args) {

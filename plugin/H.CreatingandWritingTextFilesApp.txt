@@ -3,9 +3,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/**
- * Created by gokhanyavas on 22.03.2017.
- */
 public class App {
 
     public static void main(String[] args) {

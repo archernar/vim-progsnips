@@ -3,13 +3,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- * Created by gokhanyavas on 23.03.2017.
- */
-
-
-
-
 public class App {
 
     public static void main(String[] args) {

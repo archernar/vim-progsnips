@@ -1,6 +1,3 @@
-/**
- * Created by gokhanyavas on 18.04.2017.
- */
 public enum Months {
     Ocak(1),
     Subat(2),

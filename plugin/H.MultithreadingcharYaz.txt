@@ -1,8 +1,3 @@
-/**
- * Created by gokhanyavas on 8.04.2017.
- */
-
-// Karakter yazdiran runable sinifini uygulayan bir sinif ornegi
 public class charYaz implements Runnable{
 
         private char karakter;

@@ -3,9 +3,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-/**
- * Created by gokhanyavas on 22.03.2017.
- */
 public class WriteObjects {
     public static void main(String[] args) {
         System.out.println("Writing objects....");

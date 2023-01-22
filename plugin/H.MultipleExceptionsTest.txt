@@ -2,9 +2,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 
-/**
- * Created by gokhanyavas on 21.03.2017.
- */
 public class Test {
 
     public  void run() throws IOException, ParseException {

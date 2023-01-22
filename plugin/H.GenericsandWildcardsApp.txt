@@ -1,9 +1,5 @@
 import java.util.ArrayList;
 
-/**
- * Created by gokhanyavas on 21.03.2017.
- */
-
 class Machine{
     @Override
     public String toString() {

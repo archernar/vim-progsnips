@@ -5,9 +5,6 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * Created by gokhanyavas on 22.03.2017.
- */
 public class WriteObjects {
     public static void main(String[] args) {
         System.out.println("Writing objects....");

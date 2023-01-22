@@ -1,14 +1,5 @@
 import java.util.Scanner;
 
-/**
- * Created by gokhanyavas on 16.03.2017.
- 
- Switch - Case : Verilen değişken değerlerine göre işlem yapılmasını sağlar. Tam sayılar ile kullanılabilir fakat
- double, float gibi sayılarla kullanılmaz. 
- 
- Her koşuldan sonra break; deyimi kullanılmalıdır. Aksi halde sağlanan koşuldan sonraki tüm koşullar java tarafından
- doğruluğu kontrol edilmeksizin çalıştırılır.
- */
 public class Switch {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
