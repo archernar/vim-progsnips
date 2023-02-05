@@ -14,6 +14,8 @@ rm -f "$Tmp3" >/dev/null 2>&1
 rm -f "$Tmp4" >/dev/null 2>&1
 
 source BASHCOMMON.txt
+source BASHCOMMON.txt
+source BASHCOMMON.txt
 
 while getopts "ha:" arg
 do
