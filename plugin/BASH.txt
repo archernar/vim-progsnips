@@ -18,6 +18,9 @@ source BASHCOMMON.txt
 source BASHCOMMON.txt
 source BASHCOMMON.txt
 source BASHCOMMON.txt
+source BASHCOMMON.txt
+source BASHCOMMON.txt
+source BASHCOMMON.txt
 
 while getopts "ha:" arg
 do
