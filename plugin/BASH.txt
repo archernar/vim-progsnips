@@ -1,19 +1,31 @@
-#!/usr/bin/bash
-Tmp="/tmp/$$"
-trap 'rm -f "$Tmp" >/dev/null 2>&1' 0
-trap "exit 2" 1 2 3 13 15
-rm -f "$Tmp" >/dev/null 2>&1
+#!/bin/bash
+SCR=$(echo "$0" | gawk '{n=split($0, a, "/"); print a[n];}')
+Tmp=/tmp/$$
+Tmp1="/tmp/"$SCR"_"$$
+Tmp2="/tmp/"$SCR"_"$$"_"$$
+Tmp3="/tmp/"$SCR"_"$$"_"$$"_"$$
+Tmp4="/tmp/"$SCR"_"$$"_"$$"_"$$"_"$$
+trap 'exit 0' INT HUP QUIT TERM ALRM USR1
+trap 'rm -f "$Tmp" "$Tmp1" "$Tmp2" "$Tmp3" "$Tmp4"' EXIT
+rm -f "$Tmp"  >/dev/null 2>&1
+rm -f "$Tmp1" >/dev/null 2>&1
+rm -f "$Tmp2" >/dev/null 2>&1
+rm -f "$Tmp3" >/dev/null 2>&1
+rm -f "$Tmp4" >/dev/null 2>&1
 
-while getopts "a:r:" arg
+source BASHCOMMON.txt
+
+while getopts "ha:" arg
 do
-	case $arg in
-            a) ACCOUNT=$OPTARG
-               ;;
-            r) REGION=$OPTARG
-               ;;
-	      *) exit 0
-               ;;
-	esac
+    case $arg in
+        h) usage
+           exit 0
+           ;;
+        a) ACCOUNT=$OPTARG
+           ;;
+	    *) exit 0
+           ;;
+    esac
 done
 shift $(($OPTIND - 1))
 
@@ -29,7 +41,74 @@ shift $(($OPTIND - 1))
 # -nt file2 file1 exists and is newer than file2 file1 
 # -ot file2 file1 exists and is older then file
 
+if [[ "$V" = "RESET" ]]; then
+else
+fi
+
+Command line
+if [ $? -ne 0 ]; then
+     logmsg "$func" "$retVal"
+else
+     logmsg "$func" "OK"
+fi
+
 if [ ! -r "${VAR}" ]; then
 else
   print ""
 fi
+programname=$0
+
+function usage {
+    echo "usage: $programname [-abch] [-f infile] [-o outfile]"
+    echo "  -a      turn on feature a"
+    echo "  -b      turn on feature b"
+    echo "  -c      turn on feature c"
+    echo "  -h      display help"
+    echo "  -f infile   specify input file infile"
+    echo "  -o outfile  specify output file outfile"
+    exit 1
+}
+_usage_() {
+# 0  - Normal Style (reset)
+# 1  - Bold
+# 2  - Dim
+# 3  - Italic
+# 4  - Underlined
+# 5  - Blinking
+# 7  - Reverse
+# 8  - Invisible
+# 30 - BLACK
+# 31 - RED
+# 32 - GREEN
+# 33 - YELLOW
+# 34 - BLUE
+# 35 - PURPLE
+# 36 - CYAN
+# 37 - WHITE
+bold=$(printf '\033[%sm' "4")
+reset=$(printf '\033[%sm' "0")
+
+cat <<USAGE_TEXT
+
+  ${bold}$(basename "$0") [OPTION]... [FILE]...${reset}
+
+  This is a script template.  Edit this description to print help to users.
+
+  ${bold}Options:${reset}
+    -h, --help              Display this help and exit
+    --loglevel [LEVEL]      One of: FATAL, ERROR, WARN, INFO, NOTICE, DEBUG, ALL, OFF
+                            (Default is 'ERROR')
+    --logfile [FILE]        Full PATH to logfile.  (Default is '${HOME}/logs/$(basename "$0").log')
+    -n, --dryrun            Non-destructive. Makes no permanent changes.
+    -q, --quiet             Quiet (no output)
+    -v, --verbose           Output more information. (Items echoed to 'verbose')
+    --force                 Skip all user interaction.  Implied 'Yes' to all actions.
+
+  ${bold}Example Usage:${reset}
+
+      ${gray}# Run the script and specify log level and log file.${reset}
+      $(basename "$0") -vn --logfile "/path/to/file.log" --loglevel 'WARN'
+USAGE_TEXT
+
+}
+
