@@ -1,0 +1,92 @@
+import java.io.FileWriter;   // Import the FileWriter class
+import java.io.IOException;  // Import the IOException class to handle errors
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;    
+
+public class Logger {
+    final static String BAR = " | ";
+    private String loggingPrefix = "";
+    private String fn ="/tmp/applog";
+
+    public String getFileName() {
+        return fn;
+    }
+    public Logger() {
+        loggingPrefix = "";
+        logImpl("Logger Init");
+    }
+    public Logger(String szPrefix) {
+        loggingPrefix = szPrefix;
+        logImpl("Logger Init");
+    }
+    public Logger(String szPrefix, String fn) {
+        this.loggingPrefix = szPrefix;
+        this.fn = fn;
+    }
+
+    public void log(Exception e) {
+    }
+    public void log(int n) {
+        log(String.valueOf(n));
+    }
+
+    public void setloggingPrefix(String sz) {
+        loggingPrefix = sz;
+    }
+    public void log(String sz1, String sz2) {
+        log(sz1 + ": " + sz2);
+    }
+    public void log(String sz1, int n) {
+        log(sz1 + ": " + n);
+    }
+
+    public void log(String sz) {
+        logImpl(sz);
+    }
+    public void logStackTrace(String sz) {
+        StackTraceElement[] arr = Thread.currentThread().getStackTrace();
+        for (int i=2;i<arr.length;i++)
+            this.log("STACK| " + arr[i].toString());
+    }
+    public void logStackTraceAll(String sz) {
+        StackTraceElement[] arr = Thread.currentThread().getStackTrace();
+        for (int i=0;i<arr.length;i++)
+            this.log("STACK| " + arr[i].toString());
+    }
+    public void logStackTraceAllTopDown(String sz) {
+        String dent = "   ";
+        StringBuilder szDent= new StringBuilder(dent);
+        StackTraceElement[] arr = Thread.currentThread().getStackTrace();
+
+        if (sz.length()>0) this.log("INVOC| " + sz);
+        this.log("INVOC| Calling " + arr[2].getMethodName()+ "(...)");
+        for (int i=(arr.length-1); i>=2; i--) {
+            this.log("STACK| " + szDent + arr[i].toString());
+            szDent.append(dent);
+        }
+    }
+    public void logbar() {
+        this.log("###################################################################################");
+    }
+
+    private void logImpl(String sz) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now();  
+        try {
+          FileWriter myWriter = new FileWriter(fn,true);
+          myWriter.write(dtf.format(now) + " " + loggingPrefix + "  " + sz + "\n");
+          myWriter.close();
+        } catch (IOException e) {
+          System.out.println("An error occurred.");
+          e.printStackTrace();
+        }
+    }
+    public static void main(String[] args) {
+        int x = 0;
+        Logger l = new Logger();
+        l.logStackTraceAllTopDown("Testing the Trace");
+
+    }
+
+}
+
