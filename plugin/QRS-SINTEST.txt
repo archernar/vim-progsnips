@@ -1,0 +1,11 @@
+public class SinTest {
+
+public static void main(String[] args) {
+    System.out.println();
+    for ( in i = 0;i<91;i++) {
+        double d = Math.sin((double) Math.toRadians(Util.rand(0,90)));
+        System.out.println(d);
+    }
+}
+
+}
