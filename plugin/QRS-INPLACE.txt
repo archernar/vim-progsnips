@@ -1,0 +1,374 @@
+#!/usr/bin/bash                                                                                          
+SCR=$(echo "$0" | gawk '{n=split($0, a, "/"); print a[n];}')
+Tmp=/tmp/$$                                                                                              
+Tmp1=/tmp/$$                                                                                              
+Tmp2="/tmp/$$_$$"
+trap 'exit 0' INT HUP QUIT TERM ALRM USR1                                                                
+trap 'rm -f "$Tmp" "$Tmp1" "$Tmp2"' EXIT                                                                         
+rm -f "$Tmp1" >/dev/null 2>&1                                                                            
+rm -f "$Tmp2" >/dev/null 2>&1                                                                            
+rm -f "$Tmp"  >/dev/null 2>&1     
+
+DEPLOY="NO"
+VERBOSE="NO"
+FAST="NO"
+
+openpage() {
+    echo "<!DOCTYPE html>"
+    echo "<html lang='en'>"
+    echo "<!-- START HEADTAG -->"
+    echo "<head>"
+    echo "<meta charset='UTF-8'>"
+    echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>"
+    echo "<title>Music</title>"
+    echo "<script type='text/javascript' src='jq/jquery331min.js'></script>"
+    echo "<script type='text/javascript' src='fregs.js'></script>"
+    echo "<script type='text/javascript' src='config.js'></script>"
+    echo "<script type='text/javascript' src='selectors.js'></script>"
+    echo "<script type='text/javascript' src='elementals.js'></script>"
+    echo "<script type='text/javascript' src='proto.js'></script>"
+    echo "<script type='text/javascript' src='traceDebug.js'></script>"
+    echo "<script type='text/javascript' src='guids.js'></script>"
+    echo "<script type='text/javascript' src='cookie.js'></script>"
+    echo "<script type='text/javascript' src='resize.js'></script>"
+    echo "<script type='text/javascript' src='iArt.js'></script>"
+    echo "<script type='text/javascript' src='makers.js'></script>"
+    echo "<script type='text/javascript' src='songarray.js'></script>"
+    echo "<script type='text/javascript' src='lists.js'></script>"
+    echo "<script type='text/javascript' src='audio.js'></script>"
+    echo "<script type='text/javascript' src='iArgs.js'></script>"
+    echo "<script type='text/javascript' src='utils.js'></script>"
+    echo "<script type='text/javascript' src='json.js'></script>"
+    echo "<script type='text/javascript' src='download.js'></script>"
+    echo "<script type='text/javascript' src='script.js'></script>"
+    echo "<link rel='stylesheet' href='styles.css'>"
+    echo "</head>"
+    echo "<body id='theBody'>"
+    echo "<div>"
+}
+
+fregSpace() {
+    echo "&nbsp;"
+}
+fregBR() {
+    echo "<br>"
+}
+fregPlayMarker() {
+    # echo "<a href='javascript:fregPlay();'><font size=+1>Play</font></a>"
+    echo "<button valign=middle class='controlbutton' id='play'>Play</button>"
+}
+fregPauseMarker() {
+    # echo "<a href='javascript:fregPause();'><font size=+1>Pause</font></a>"
+    echo "<button valign=middle class='controlbutton' id='pause'>Pause</button>"
+}
+fregReStartMarker() {
+    echo "<button valign=middle class='controlbutton' id='again'>ReStart</button>"
+}
+fregVolumeUpButton() {
+    echo "<button valign=middle class='controlbutton' id='volumeup'>V+</button>"
+}
+fregVolumeDownButton() {
+    echo "<button valign=middle class='controlbutton' id='volumedown'>V-</button>"
+}
+fregVolumeUpMarker() {
+    echo "<a class='control' href='javascript:fregVolumeUp();'>Vol+Up</a>"
+}
+fregVolumeDownMarker() {
+   echo "<a class='control' href='javascript:fregVolumeDown();'>Vol-Dn</a>"
+}
+fregForwardMarker() {
+   echo "<A class='control' href='javascript:fregForward();'>&gt;</A>"
+}
+fregBackwardMarker() {
+   echo "<A class='control' href='javascript:fregBack();'>&lt;</A>"
+}
+fregStartMarker() {
+    echo "<a class='control'  href='javascript:fregPosition(fregStart());'>|</a>"
+}
+fregEndMarker() {
+    echo "<a class='control' href='javascript:fregPosition(fregEnd());'>|</a>"
+}
+fregFourthMarker() {
+    echo "<a class='control' href='javascript:fregPosition(fregFourth());'>-4-</a>"
+}
+freg8thMarker() {
+    echo "<a class='control' href='javascript:fregPosition(freg8th()*" $1 ");'>+</a>"
+}
+fregHalfMarker() {
+    echo "<a class='control' href='javascript:fregPosition(fregHalf());'>+</a>"
+}
+fregArtist() {
+     echo "<span class='controltext' valign=middle id='audioartist'>-</span>"
+}
+fregAlbum() {
+     echo "<span class='controltext' valign=middle id='audioalbum'>-</span>"
+}
+fregNextTitle() {
+     echo "<span class='controltext' valign=middle id='nexttitle'>-</span>"
+}
+fregTitlePlaying() {
+    echo "<span class='controltext' valign=middle id='audiotitleplaying'>-</span>"
+}
+fregTitle() {
+    echo "<span class='controltext' valign=middle id='audiotitle'>-</span>"
+}
+fregTitleList() {
+    echo "<span class='controltext' valign=middle id='audiotitlelist'>-</span>"
+}
+fregBasicControls() {
+    echo "<table width=100%>"
+    echo "<tr>"
+    echo "<td valign=top align=left>"
+    echo "<font size=-1>Playing Now</font>"
+    echo "</td>"
+    echo "</tr></table>"
+    fregArtist
+    fregBR
+    fregAlbum
+    fregBR
+    fregTitlePlaying
+    echo "<table width=100%>"
+    echo "<tr>"
+    echo "<td valign=top align=left>"
+    echo "<font size=-1>Next Title</font>"
+    echo "</td>"
+    echo "</tr></table>"
+    fregNextTitle
+
+}
+fregDetailControls() {
+    echo "<font size=-1>"
+    fregBackwardMarker
+    fregStartMarker
+    freg8thMarker 1
+    freg8thMarker 2
+    freg8thMarker 3
+    fregHalfMarker 
+    freg8thMarker 5
+    freg8thMarker 6
+    freg8thMarker 7
+    fregEndMarker 
+    fregForwardMarker
+    # fregBR
+    # fregTitleList 
+
+    echo "</font>"
+}
+
+fregMarkers() {
+
+    fregBR
+
+}
+
+
+closepage() {
+    #echo "<div id='moex' class='stickyheader'>"
+    #echo "</div>"
+
+
+
+    echo "<script type='text/javascript' src='trs.js'></script>"
+    echo "<script type='text/javascript' src='end.js'></script>"
+    echo "</div>"
+    echo "</body>"
+    echo "</html>"
+}
+
+# s/\"\([^"]*\)\"/'\1'/g
+# echo "<input id='myInput' size=42 type='text' onkeyup='myFunction()' placeholder='Search ...'>"
+
+opentoptable() {
+
+    echo "<table id='thecontroltable' cellpadding=4px border=1 width=588px style='position:absolute; left:1px; top:10px;'>"
+        echo "<tr>"
+            echo "<td width=132 valign=top align=middle><img width=99% id='imageBasicControls' src='montage.png'></td>"
+            echo "<td valign=top align=left>"
+                fregBasicControls
+            echo "</td>"
+            echo "<td id='utilbar' valign=middle align=middle>"
+            fregDetailControls
+            echo "<br>"
+            echo "</td>"
+        echo "</tr>"
+    echo "</table>"
+
+
+cat <<kfkfkf
+     <table id='theclient2' border=1 style='position:absolute; left:1px; top:10px;'>
+     <tr>
+     <td nowrap align=left valign=middle>
+     </td>
+     </tr></table>
+     <table id='theclient1' border=1 style='position:absolute; left:1px; top:10px;'>
+     <tr>
+     <td align=left valign=middle>
+             <input size=9 id='ArtistSearchInput' type='text' placeholder='Artist Search' />
+             <input size=9 id='AlbumSearchInput' type='text'  placeholder='Album Search' />
+             <input size=9 id='SongSearchInput' type='text'   placeholder='Song Search' />
+     </td>
+     <td id='messagetd' align=left valign=middle>
+     </td>
+    <tr>
+    </table>
+
+    <table border=0 id='dara' width=330px style='position:absolute; left:1px; top:115px;'>
+    <tr><td>
+        <center>
+        <audio controls autoplay id='freg' src=''></audio><br>
+        <a href="javascript:window.open( document.getElementById('frei').getAttribute('src'),'Art', 'width=400,height=300');"><img id='frei' src='montage.png'></a>
+        </center>
+        <div id='otro' class="box"></div>
+
+    </td></tr>
+    </table>
+
+
+    <table width=588px valign=top border=1 id='theTable2' style='position:absolute; left:10px; top:160px;'></table>
+
+    <div class='foot' width=99%>
+    <table class='ital' valign=top border=1 id='message' style='position:absolute; left:10px; top:160px;'><tr><td>moxx</td></tr></table>
+
+
+    <table cellspacing=0 cellpadding=2 width=99% valign=top border=0 id='theFloater'>
+    <tr><td colspan=100 class='floatersmall' valign=top align=middle>&nbsp;</td></tr>
+    <tr>
+    <td colspan=1 class='floater'>&nbsp;</td>
+    <td colspan=1 class='floater'>Volume</td>
+    <td colspan=3 class='floater'>Faders</td>
+    <td colspan=3 class='floater'>Control</td>
+    </tr>
+    <tr>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    </tr>
+    <tr>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    <td class='floater' align=middle>&nbsp;</td>
+    </tr>
+    <tr><td colspan=100 id='seguesign2' class='floatersmall' valign=top align=middle>&nbsp;</td></tr>
+    <tr><td colspan=100 id='seguesign'  class='floatersmall' valign=top align=middle>&nbsp;</td></tr>
+    </table>
+    </div>
+
+kfkfkf
+
+
+}
+
+
+    # <tr><td class='black' align=middle>&nbsp;</td></tr>
+    # <tr><td class='white' align=middle></td></tr>
+necho() {
+    XXX=1
+}
+opentable() {
+    necho "<table id="$1" class='moe' style='position:relative; left:60px;' >"
+    echo "<table id="$1" class='moe'>"
+    echo ""
+}
+
+linktrtd() {
+    A=`echo "$1" | gawk '{print tolower($0)}'`
+    echo "<tr><td><a href='$2'>$A</a></td></tr>"
+}
+link() {
+    A=`echo "$1" | gawk '{print tolower($0)}'`
+    echo "<a href='$2'>$A</a>&nbsp;&nbsp;"
+}
+
+brline() {
+    echo "<br>"
+    echo ""
+}
+closetable() {
+    echo "</table>"
+    echo ""
+}
+echoerr() { echo "$@" 1>&2; }
+
+putemptyrow() {
+    ls | gawk '
+    function dq(sz) { return "\x22" sz "\x22"; }
+    function sq(sz) { return "\x27" sz "\x27"; }
+    BEGIN {
+      printf "<tr>" 
+      printf "<td>%s</td>", "<a href=''>&nbsp;</a>" 
+      printf "<td>%s</td>", "<a href=''>&nbsp;</a>" 
+      printf "<td>%s</td>", "<a href=''>&nbsp;</a>" 
+      printf "<td>%s</td>", "<a href=''>&nbsp;</a>" 
+      printf "<td>%s</td>", "<a href=''>&nbsp;</a>" 
+      printf "</tr>\n" 
+    }'
+
+}
+
+
+echo "Building Page"
+
+rm -f README.html
+rm -f README.md
+rm -f EXAMPLES.html
+rm -f EXAMPLES.md
+
+echo "" >         $Tmp
+echo "" >>        $Tmp
+openpage >>       $Tmp
+opentoptable >>   $Tmp
+closetable >>     $Tmp
+closepage >>      $Tmp
+
+echo "Complete"
+cp $Tmp        index.html
+cp $Tmp        Actual.html
+cp $Tmp        a.html
+cp $Tmp        b.html
+cp $Tmp        A.html
+cp $Tmp        B.html
+cp $Tmp        fs.html
+ls -l Actual.html
+ls -l a.html
+ls -l b.html
+ls -l A.html
+ls -l B.html
+ls -l fs.html
+echo "music - an interface" > README.md
+
+echo ""
+echo "Copy"
+echo "running jsonmusic > json.js"
+find /etc/music -type f | head -50000 | egrep mp3$ | grep -v Trash- |  sed 's/[/]etc[/]music//'  | sort > $Tmp1
+cp $Tmp1 fed
+./jsonmusic unfiltered > json.js
+ls -l json.js
+
+echo "   Local"
+sudo rsync --delete -av /home/mestes/scm/music/ /var/www/html
+ln -s /etc/music /var/www/html/MZK
+echo "   Remote"
+sudo rsync --delete -av /home/mestes/scm/music/ /home/mestes/scm/remote/html
+
+
+echo ""
+echo "Clean Up"
+rm index.html
+rm Actual.html
+rm A.html
+rm B.html
+rm fs.html
+rm -f json.js
+rm -f jsonf.js
+echo ""
+echo "Done"
